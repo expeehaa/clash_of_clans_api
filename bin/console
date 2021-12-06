@@ -5,4 +5,7 @@ require 'bundler/setup'
 require 'clash_of_clans_api'
 
 require 'pry'
-Pry.start
+
+client = ClashOfClansApi::Client.new(ENV['CLASH_OF_CLANS_API_TOKEN']) if ENV['CLASH_OF_CLANS_API_TOKEN']
+
+Pry.start(self)
