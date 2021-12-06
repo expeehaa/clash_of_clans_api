@@ -1,15 +1,11 @@
 == ClashOfClansApi
 
-Welcome to your new gem! In this directory, you'll find the files you
-need to be able to package up your Ruby library into a gem. Put your
-Ruby code in the file `lib/clash_of_clans_api`. To experiment with that
-code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+`clash_of_clans_api` is a gem to communicate with the Clash of Clans API at https://developer.clashofclans.com/.
+It contains low-level methods to communicate with all existing API endpoints and aims to provide higher-level abstractions for them.
 
 === Installation
 
-Add this line to your application's Gemfile:
+Add this line to your application’s Gemfile:
 
 [source,ruby]
 ----
@@ -30,21 +26,42 @@ $ gem install clash_of_clans_api
 
 === Usage
 
-TODO: Write usage instructions here
+==== API Communication
+
+To communicate with the Clash of Clans API, an API access token is required.
+Currently, the gem is not able to create tokens itself.
+
+The gem provides two classes for communication.
+`ClashOfClansApi::Api` is a low-level interface that implements methods for all API endpoints.
+If the request is successful, the API’s JSON response is parsed and returned, otherwise a `ClashOfClans::NoSucessError` is raised.
+`ClashOfClansApi::Client` is a higher-level interface that exposes its `ClashOfClansApi::Api` instance through `ClashOfClansApi::Client#api`.
+Both classes’ initializers take a single argument, the API token.
+
+The method names for the endpoints are the same in both classes.
+They are derived from the https://developer.clashofclans.com/#/documentation[API documentation] by the following steps.
+
+. Take the path name from the documentation (e.g. `/clans/{clanTag}/currentwar/leaguegroup`).
+. Replace slashes (`/`) with underscores (`\_`) and keep only inner ones (`clans_{clanTag}_currentwar_leaguegroup`).
+. In case of path arguments, singularize the path segment referenced by the argument (`clan_{clanTag}_currentwar_leaguegroup`).
+. Remove path argument segments (`clan_currentwar_leaguegroup`).
+
+Path arguments are converted to positional arguments in the order of definition in the original path name.
+Path arguments will automatically be URL-escaped.
+A URL query in the form of a `Hash` can be passed as the named parameter `query:`.
+
+==== Clan and player tags
+
+Tags in Clash of Clans are subject to format restrictions.
+Since those restrictions are well known, `ClashOfClansApi::Tags` provides class methods for checking the format (`.sanitizable?`) and sanitizing ill-formatted tags up to a certain degree (`.sanitize`).
+
+Even though the API seems to ignore some mistakes, e.g. using `O` (upper case letter o) instead of `0` (number zero), it also does not seem to correct them.
+If a player with tag `#PY0` existed, the API would return the same information for both `#PY0` and `#PYO`, except using the tag that was requested.
+This could lead to unforeseen errors like multiple database entries for the same player or clan.
+Therefore, those mistakes should be catched before sending a request.
+
 
 === Development
 
 After checking out the repo, run `bin/setup` to install dependencies.
-Then, run `rake spec` to run the tests. You can also run `bin/console`
-for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run
-`bundle exec rake install`. To release a new version, update the version
-number in `version.rb`, and then run `bundle exec rake release`, which
-will create a git tag for the version, push git commits and the created
-tag, and push the `.gem` file to https://rubygems.org[rubygems.org].
-
-=== Contributing
-
-Bug reports and pull requests are welcome on GitHub at
-https://github.com/[USERNAME]/clash_of_clans_api.
+Then, run `rake spec` to run the tests.
+You can also run `bin/console` for an interactive prompt that will allow you to experiment.
