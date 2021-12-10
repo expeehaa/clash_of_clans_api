@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'pry'
+require 'pry-byebug'
 require 'clash_of_clans_api'
 
 RSpec.configure do |config|
