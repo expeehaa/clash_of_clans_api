@@ -14,6 +14,12 @@ module ClashOfClansApi
 			@api_token = api_token
 		end
 		
+		def endpoint_headers
+			{
+				'Authorization' => "Bearer #{api_token}",
+			}
+		end
+		
 		class << self
 			def define_endpoint(name, method:, endpoint:, body: nil)
 				case method
@@ -80,7 +86,9 @@ module ClashOfClansApi
 			
 			Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme=='https') do |http|
 				block.call(uri).then do |request|
-					request['Authorization'] = "Bearer #{api_token}"
+					endpoint_headers.each do |name, value|
+						request[name] = value
+					end
 					
 					http.request(request)
 				end
