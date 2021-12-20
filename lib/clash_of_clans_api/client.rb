@@ -1,4 +1,5 @@
 require_relative 'api'
+require_relative 'models/league'
 
 module ClashOfClansApi
 	class Client
@@ -25,6 +26,16 @@ module ClashOfClansApi
 				false
 			else
 				raise "Unknown status #{response['status'].inspect}."
+			end
+		end
+		
+		def leagues
+			response = api.leagues
+			
+			raise NotImplementedError, "Found a paging cursor but handling it is not implemented yet." if response['paging']['cursors'].any?
+			
+			response['items'].map do |league|
+				Models::League.new(league)
 			end
 		end
 	end
