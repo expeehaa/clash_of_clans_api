@@ -30,7 +30,8 @@ RSpec.describe ClashOfClansApi::Models::League do
 	
 	describe '#icon_urls' do
 		it 'returns the value of key "iconUrls"' do
-			expect(instance.icon_urls).to eq({'tiny' => 'https://api-assets.clashofclans.com/leagues/72/8OhXcwDJkenBH2kPH73eXftFOpHHRF-b32n0yrTqC44.png'})
+			expect(instance.icon_urls     ).to be_a ClashOfClansApi::Models::IconSet
+			expect(instance.icon_urls.tiny).to eq   'https://api-assets.clashofclans.com/leagues/72/8OhXcwDJkenBH2kPH73eXftFOpHHRF-b32n0yrTqC44.png'
 		end
 	end
 end
