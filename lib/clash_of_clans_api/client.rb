@@ -38,5 +38,9 @@ module ClashOfClansApi
 				Models::League.new(league)
 			end
 		end
+		
+		def league(id)
+			Models::League.new(api.league(id))
+		end
 	end
 end
