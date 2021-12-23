@@ -50,22 +50,11 @@ module ClashOfClansApi
 		
 		module ClassMethods
 			def define_endpoint(name, method:, endpoint:, body: nil)
-				case method
-				when :get
-					define_method(name) do |*args, **kwargs|
-						uri = endpoint.respond_to?(:call) ? endpoint.call(*args, **kwargs) : endpoint
-						
-						transform_response(perform_request(:get, uri, query: kwargs.dig(:query), headers: kwargs.dig(:headers)))
-					end
-				when :post
-					define_method(name) do |*args, **kwargs|
-						uri          = endpoint.respond_to?(:call) ? endpoint.call(*args, **kwargs) : endpoint
-						request_body = body.call(*args, **kwargs)
-						
-						transform_response(perform_request(:post, uri, body: request_body, query: kwargs.dig(:query), headers: kwargs.dig(:headers)))
-					end
-				else
-					raise "Unsupported argument 'method: #{method.inspect}'"
+				define_method(name) do |*args, **kwargs|
+					uri          = endpoint.respond_to?(:call) ? endpoint.call(*args, **kwargs) : endpoint
+					request_body = body    .respond_to?(:call) ? body    .call(*args, **kwargs) : body
+					
+					transform_response(perform_request(method, uri, body: request_body, query: kwargs.dig(:query), headers: kwargs.dig(:headers)))
 				end
 			end
 			
