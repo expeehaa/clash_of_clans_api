@@ -54,7 +54,13 @@ module ClashOfClansApi
 					uri          = endpoint.respond_to?(:call) ? endpoint.call(*args, **kwargs) : endpoint
 					request_body = body    .respond_to?(:call) ? body    .call(*args, **kwargs) : body
 					
-					transform_response(perform_request(method, uri, body: request_body, query: kwargs.dig(:query), headers: kwargs.dig(:headers)))
+					perform_request(method, uri, body: request_body, query: kwargs.dig(:query), headers: kwargs.dig(:headers)).then do |response|
+						if !kwargs.key?(:plain_response) || !kwargs.fetch(:plain_response)
+							transform_response(response)
+						else
+							response
+						end
+					end
 				end
 			end
 			
