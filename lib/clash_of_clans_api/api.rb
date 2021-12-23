@@ -7,6 +7,10 @@ module ClashOfClansApi
 		
 		BASE_URI = URI('https://api.clashofclans.com/v1/')
 		
+		def base_uri
+			BASE_URI
+		end
+		
 		attr_reader :api_token
 		
 		def initialize(api_token)
