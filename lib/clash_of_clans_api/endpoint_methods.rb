@@ -63,14 +63,6 @@ module ClashOfClansApi
 					end
 				end
 			end
-			
-			def url_escape(string)
-				if !string.nil?
-					CGI.escape(string.to_s)
-				else
-					raise TypeError, 'cannot escape nil'
-				end
-			end
 		end
 	end
 end
