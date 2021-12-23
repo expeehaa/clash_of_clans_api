@@ -5,7 +5,7 @@ require 'net/https'
 module ClashOfClansApi
 	module EndpointMethods
 		def endpoint_headers
-			raise NotImplementedError
+			{}
 		end
 		
 		def perform_request(method, api_path, query: nil, body: nil, headers: nil)
