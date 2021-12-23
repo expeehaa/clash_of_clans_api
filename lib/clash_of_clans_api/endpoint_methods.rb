@@ -51,8 +51,8 @@ module ClashOfClansApi
 		module ClassMethods
 			def define_endpoint(name, method:, endpoint:, body: nil)
 				define_method(name) do |*args, **kwargs|
-					uri          = endpoint.respond_to?(:call) ? endpoint.call(*args, **kwargs) : endpoint
-					request_body = body    .respond_to?(:call) ? body    .call(*args, **kwargs) : body
+					uri          = endpoint.respond_to?(:call) ? ClashOfClansApi::Utils.call_proc_without_unknown_keywords(endpoint, *args, **kwargs) : endpoint
+					request_body = body    .respond_to?(:call) ? ClashOfClansApi::Utils.call_proc_without_unknown_keywords(body,     *args, **kwargs) : body
 					
 					perform_request(method, uri, body: request_body, query: kwargs.dig(:query), headers: kwargs.dig(:headers)).then do |response|
 						if !kwargs.key?(:plain_response) || !kwargs.fetch(:plain_response)
