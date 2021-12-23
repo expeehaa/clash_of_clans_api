@@ -7,5 +7,6 @@ require 'clash_of_clans_api'
 require 'pry'
 
 client = ClashOfClansApi::Client.new(ENV['CLASH_OF_CLANS_API_TOKEN']) if ENV['CLASH_OF_CLANS_API_TOKEN']
+tclient = ClashOfClansApi::TokenClient.new(ENV['CLASH_OF_CLANS_TOKEN_API_EMAIL'], ENV['CLASH_OF_CLANS_TOKEN_API_PASSWORD'])
 
 Pry.start(self)
