@@ -32,7 +32,7 @@ RSpec.describe ClashOfClansApi::Api do
 			end
 			
 			it 'accepts query parameters' do
-				allow(api).to receive(:perform_request   ).once.with(any_args, query: {test: 5, asdf: 'i like trains'}).and_return('flying donkeys')
+				allow(api).to receive(:perform_request   ).once.with(any_args, query: {test: 5, asdf: 'i like trains'}, headers: nil).and_return('flying donkeys')
 				allow(api).to receive(:transform_response).once.with('flying donkeys'                                 ).and_return('flying cows'   )
 				
 				expect(api.send(method_name, 'some_test_string', query: {test: 5, asdf: 'i like trains'})).to eq 'flying cows'
@@ -72,7 +72,7 @@ RSpec.describe ClashOfClansApi::Api do
 			end
 			
 			it 'accepts query parameters' do
-				allow(api).to receive(:perform_request   ).once.with(any_args, query: {test: 5, asdf: 'i like trains'}).and_return('flying donkeys')
+				allow(api).to receive(:perform_request   ).once.with(any_args, query: {test: 5, asdf: 'i like trains'}, headers: nil).and_return('flying donkeys')
 				allow(api).to receive(:transform_response).once.with('flying donkeys'                                 ).and_return('flying cows'   )
 				
 				expect(api.send(method_name, query: {test: 5, asdf: 'i like trains'})).to eq 'flying cows'

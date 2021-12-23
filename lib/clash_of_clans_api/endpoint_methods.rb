@@ -8,7 +8,7 @@ module ClashOfClansApi
 			raise NotImplementedError
 		end
 		
-		def perform_request(method, api_path, query: nil, body: nil)
+		def perform_request(method, api_path, query: nil, body: nil, headers: nil)
 			uri = self.class::BASE_URI+api_path
 			uri.query = URI.encode_www_form(query) if query
 			
@@ -21,7 +21,7 @@ module ClashOfClansApi
 				else
 					raise ArgumentError, "Invalid method #{method.inspect}."
 				end.new(uri).tap do |request|
-					endpoint_headers.each do |name, value|
+					endpoint_headers.merge(headers || {}).each do |name, value|
 						request[name] = value
 					end
 					
@@ -55,14 +55,14 @@ module ClashOfClansApi
 					define_method(name) do |*args, **kwargs|
 						uri = endpoint.respond_to?(:call) ? endpoint.call(*args, **kwargs) : endpoint
 						
-						transform_response(perform_request(:get, uri, query: kwargs.dig(:query)))
+						transform_response(perform_request(:get, uri, query: kwargs.dig(:query), headers: kwargs.dig(:headers)))
 					end
 				when :post
 					define_method(name) do |*args, **kwargs|
 						uri          = endpoint.respond_to?(:call) ? endpoint.call(*args, **kwargs) : endpoint
 						request_body = body.call(*args, **kwargs)
 						
-						transform_response(perform_request(:post, uri, body: request_body, query: kwargs.dig(:query)))
+						transform_response(perform_request(:post, uri, body: request_body, query: kwargs.dig(:query), headers: kwargs.dig(:headers)))
 					end
 				else
 					raise "Unsupported argument 'method: #{method.inspect}'"
