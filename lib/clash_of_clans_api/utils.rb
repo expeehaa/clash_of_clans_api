@@ -1,3 +1,5 @@
+require 'open-uri'
+
 module ClashOfClansApi
 	module Utils
 		def self.url_escape(string)
@@ -23,6 +25,10 @@ module ClashOfClansApi
 				end
 			
 			proc.call(*args, **proc_keys, &block)
+		end
+		
+		def self.get_current_ipv4_address
+			IPAddr.new(URI('https://ipv4.icanhazip.com').open.read.strip).to_s
 		end
 	end
 end
