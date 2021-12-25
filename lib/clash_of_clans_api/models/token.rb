@@ -19,6 +19,10 @@ module ClashOfClansApi
 				
 				@token_client = token_client
 			end
+			
+			def revoke
+				@token_client.revoke_api_key(self.id)
+			end
 		end
 	end
 end
