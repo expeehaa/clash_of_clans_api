@@ -1,4 +1,5 @@
 require_relative 'api'
+require_relative 'models/paginated_response'
 require_relative 'models/league'
 
 module ClashOfClansApi
