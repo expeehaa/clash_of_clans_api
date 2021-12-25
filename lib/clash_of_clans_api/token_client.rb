@@ -32,6 +32,14 @@ module ClashOfClansApi
 			@session_headers = nil
 		end
 		
+		def list_api_keys
+			response = TokenApi.apikey_list(headers: @session_headers)
+			
+			response['keys'].map do |key|
+				Models::Token.new(key, token_client: self)
+			end
+		end
+		
 		def create_api_key(name, description, ip_addresses)
 			response = TokenApi.apikey_create(name: name, description: description, ip_addresses: (ip_addresses.is_a?(Array) ? ip_addresses : [ip_addresses]), headers: @session_headers)
 			
