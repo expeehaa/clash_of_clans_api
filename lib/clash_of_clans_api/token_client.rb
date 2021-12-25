@@ -46,6 +46,12 @@ module ClashOfClansApi
 			Models::Token.new(response['key'], token_client: self)
 		end
 		
+		def revoke_api_key(id)
+			TokenApi.apikey_revoke(id: id, headers: @session_headers)
+			
+			true
+		end
+		
 		class << self
 			def create!(email, password)
 				new(email, password).login!
