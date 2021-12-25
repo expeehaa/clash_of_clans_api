@@ -23,6 +23,10 @@ module ClashOfClansApi
 			def revoke
 				@token_client.revoke_api_key(self.id)
 			end
+			
+			def client_from_token
+				ClashOfClansApi::Client.new(self.key)
+			end
 		end
 	end
 end

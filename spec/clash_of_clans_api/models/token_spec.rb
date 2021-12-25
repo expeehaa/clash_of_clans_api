@@ -96,4 +96,13 @@ RSpec.describe ClashOfClansApi::Models::Token do
 			instance.revoke
 		end
 	end
+	
+	describe '#client_from_token' do
+		it 'calls #revoke_api_key on the token_client' do
+			client = instance.client_from_token
+			
+			expect(client              ).to be_a(ClashOfClansApi::Client)
+			expect(client.api.api_token).to eq 'mysupercoolkey'
+		end
+	end
 end
