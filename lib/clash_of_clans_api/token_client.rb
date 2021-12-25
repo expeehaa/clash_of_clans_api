@@ -1,5 +1,6 @@
 require 'cgi'
 require_relative 'token_api'
+require_relative 'models/token'
 
 module ClashOfClansApi
 	class TokenClient
@@ -29,6 +30,12 @@ module ClashOfClansApi
 			TokenApi.logout(headers: @session_headers)
 		ensure
 			@session_headers = nil
+		end
+		
+		def create_api_key(name, description, ip_addresses)
+			response = TokenApi.apikey_create(name: name, description: description, ip_addresses: (ip_addresses.is_a?(Array) ? ip_addresses : [ip_addresses]), headers: @session_headers)
+			
+			Models::Token.new(response['key'], token_client: self)
 		end
 		
 		class << self
