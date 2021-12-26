@@ -24,14 +24,12 @@ module ClashOfClansApi
 					define_method(name) do
 						if type.nil?
 							self[key]
+						elsif property_cached?(name)
+							property_from_cache(name)
 						else
-							if property_cached?(name)
-								property_from_cache(name)
-							else
-								cache_property(name, self[key].then do |prop|
-									prop.is_a?(Array) ? prop.map { |item| type.new(item) } : type.new(prop)
-								end)
-							end
+							cache_property(name, self[key].then do |prop|
+								prop.is_a?(Array) ? prop.map { |item| type.new(item) } : type.new(prop)
+							end)
 						end
 					end
 					
