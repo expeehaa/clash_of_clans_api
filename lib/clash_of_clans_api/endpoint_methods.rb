@@ -53,7 +53,7 @@ module ClashOfClansApi
 					uri          = endpoint.respond_to?(:call) ? ClashOfClansApi::Utils.call_proc_without_unknown_keywords(endpoint, *args, **kwargs) : endpoint
 					request_body = body    .respond_to?(:call) ? ClashOfClansApi::Utils.call_proc_without_unknown_keywords(body,     *args, **kwargs) : body
 					
-					perform_request(method, uri, body: request_body, query: kwargs.dig(:query), headers: kwargs.dig(:headers)).then do |response|
+					perform_request(method, uri, body: request_body, query: kwargs.key?(:query) ? kwargs.fetch(:query) : nil, headers: kwargs.key?(:headers) ? kwargs.fetch(:headers) : nil).then do |response|
 						if !kwargs.key?(:plain_response) || !kwargs.fetch(:plain_response)
 							transform_response(response)
 						else
