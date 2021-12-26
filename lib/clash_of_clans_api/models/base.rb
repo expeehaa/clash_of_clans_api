@@ -29,7 +29,7 @@ module ClashOfClansApi
 								property_from_cache(name)
 							else
 								cache_property(name, self[key].then do |prop|
-									prop.is_a?(Array) ? prop.map {|item| type.new(item) } : type.new(prop)
+									prop.is_a?(Array) ? prop.map { |item| type.new(item) } : type.new(prop)
 								end)
 							end
 						end

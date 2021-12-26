@@ -81,8 +81,8 @@ Layout/SpaceInsideBlockBraces:
   EnforcedStyle: space
   EnforcedStyleForEmptyBraces: no_space
   SpaceBeforeBlockParameters: true
-  # Exclude:
-  #   - 'spec/**/*'
+  Exclude:
+    - 'spec/**/*'
 
 Layout/SpaceInsideHashLiteralBraces:
   Enabled: false
