@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+RSpec::Matchers.define_negated_matcher :not_match, :match
+
 RSpec.describe ClashOfClansApi::Tags do
 	let(:proper_tags) do
 		%w[
@@ -79,41 +81,29 @@ RSpec.describe ClashOfClansApi::Tags do
 	
 	describe '.tag_regex' do
 		it 'matches all proper_tags' do
-			proper_tags.each do |tag|
-				expect(tag).to match ClashOfClansApi::Tags.tag_regex
-			end
+			expect(proper_tags     ).to all     match ClashOfClansApi::Tags.tag_regex
 		end
 		
 		it 'does not match any sanitizable_tags' do
-			sanitizable_tags.each do |tag|
-				expect(tag).not_to match ClashOfClansApi::Tags.tag_regex
-			end
+			expect(sanitizable_tags).to all not_match ClashOfClansApi::Tags.tag_regex
 		end
 		
 		it 'does not match any wrong_tags' do
-			wrong_tags.each do |tag|
-				expect(tag).not_to match ClashOfClansApi::Tags.tag_regex
-			end
+			expect(wrong_tags      ).to all not_match ClashOfClansApi::Tags.tag_regex
 		end
 	end
 	
 	describe '.sanitizable_tag_regex' do
 		it 'matches all proper_tags' do
-			proper_tags.each do |tag|
-				expect(tag).to match ClashOfClansApi::Tags.sanitizable_tag_regex
-			end
+			expect(proper_tags     ).to all     match ClashOfClansApi::Tags.sanitizable_tag_regex
 		end
 		
 		it 'matches all sanitizable_tags' do
-			sanitizable_tags.each do |tag|
-				expect(tag).to match ClashOfClansApi::Tags.sanitizable_tag_regex
-			end
+			expect(sanitizable_tags).to all     match ClashOfClansApi::Tags.sanitizable_tag_regex
 		end
 		
 		it 'does not match any wrong_tags' do
-			wrong_tags.each do |tag|
-				expect(tag).not_to match ClashOfClansApi::Tags.sanitizable_tag_regex
-			end
+			expect(wrong_tags      ).to all not_match ClashOfClansApi::Tags.sanitizable_tag_regex
 		end
 	end
 	
