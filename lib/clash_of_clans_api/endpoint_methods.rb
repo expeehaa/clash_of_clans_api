@@ -39,7 +39,7 @@ module ClashOfClansApi
 			if response.is_a?(Net::HTTPSuccess)
 				JSON.parse(response.body)
 			else
-				raise NoSuccessError.new(response)
+				raise NoSuccessError, response
 			end
 		end
 		
