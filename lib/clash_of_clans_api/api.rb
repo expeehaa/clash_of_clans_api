@@ -33,7 +33,7 @@ module ClashOfClansApi
 		define_endpoint :clan_members,                    method: :get,  endpoint: proc { |clan_tag               | "clans/#{Utils.url_escape(clan_tag)}/members"                                         }
 		
 		define_endpoint :player,                          method: :get,  endpoint: proc { |player_tag             | "players/#{Utils.url_escape(player_tag)}"                                             }
-		define_endpoint :player_verifytoken,              method: :post, endpoint: proc { |player_tag             | "players/#{Utils.url_escape(player_tag)}/verifytoken"                                 }, body: proc { |token:| %Q[{"token":"#{token}"}] }
+		define_endpoint :player_verifytoken,              method: :post, endpoint: proc { |player_tag             | "players/#{Utils.url_escape(player_tag)}/verifytoken"                                 }, body: proc { |token:| %Q({"token":"#{token}"}) }
 		
 		define_endpoint :leagues,                         method: :get,  endpoint:                                     'leagues'
 		define_endpoint :league_season,                   method: :get,  endpoint: proc { |   league_id, season_id|    "leagues/#{Utils.url_escape(   league_id)}/seasons/#{Utils.url_escape(season_id)}" }
