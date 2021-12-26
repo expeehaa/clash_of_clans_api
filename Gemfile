@@ -9,3 +9,5 @@ gem 'pry'
 gem 'pry-byebug'
 
 gem 'rspec', '~> 3.0'
+
+gem 'rubocop', require: false
