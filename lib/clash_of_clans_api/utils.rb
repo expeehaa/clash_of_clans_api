@@ -21,7 +21,7 @@ module ClashOfClansApi
 				if params.key?(:keyrest)
 					kwargs
 				else
-					kwargs.slice(*(params.values_at(:key, :keyreq).compact.flatten))
+					kwargs.slice(*params.values_at(:key, :keyreq).compact.flatten)
 				end
 			
 			proc.call(*args, **proc_keys, &block)
