@@ -9,10 +9,10 @@ module ClashOfClansApi
 		end
 		
 		def perform_request(method, api_path, query: nil, body: nil, headers: nil)
-			uri = self.base_uri+api_path
+			uri = self.base_uri + api_path
 			uri.query = URI.encode_www_form(query) if query
 			
-			Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme=='https') do |http|
+			Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https') do |http|
 				case method
 				when :get
 					Net::HTTP::Get

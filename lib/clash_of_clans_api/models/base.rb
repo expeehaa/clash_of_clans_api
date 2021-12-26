@@ -36,7 +36,7 @@ module ClashOfClansApi
 					end
 					
 					if required
-						@required_fields = (@required_fields || [])+[key]
+						@required_fields = (@required_fields || []) + [key]
 					end
 				end
 			end
