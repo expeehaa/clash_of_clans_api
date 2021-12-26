@@ -32,7 +32,7 @@ module ClashOfClansApi
 		def leagues
 			response = api.leagues
 			
-			raise NotImplementedError, "Found a paging cursor but handling it is not implemented yet." if response['paging']['cursors'].any?
+			raise NotImplementedError, 'Found a paging cursor but handling it is not implemented yet.' if response['paging']['cursors'].any?
 			
 			response['items'].map do |league|
 				Models::League.new(league)
