@@ -10,21 +10,21 @@ RSpec.describe ClashOfClansApi::Api do
 	end
 	
 	[
-		[:clan_currentwar_leaguegroup    , nil         , 'aninvalidvalue'],
-		[:clanwarleagues_war             , nil         , 'aninvalidvalue'],
-		[:clan_warlog                    , '#2YYQPVGQQ', 'aninvalidvalue'],
-		[:clan_currentwar                , '#2YYQPVGQQ', 'aninvalidvalue'],
-		[:clan                           , '#2YYQPVGQQ', 'aninvalidvalue'],
-		[:clan_members                   , '#2YYQPVGQQ', 'aninvalidvalue'],
-		[:player                         , '#QG8VUCRUQ', 'aninvalidvalue'],
-		[:league                         , 29000000    , 'aninvalidvalue'],
-		[:league_seasons                 , 29000022    , 'aninvalidvalue'], # League seasons are only available in the legendary league.
-		[:warleague                      , 48000000    , 'aninvalidvalue'],
-		[:location_rankings_clans        , 32000094    , 'aninvalidvalue'],
-		[:location_rankings_players      , 32000094    , 'aninvalidvalue'],
-		[:location_rankings_clansversus  , 32000094    , 'aninvalidvalue'],
-		[:location_rankings_playersversus, 32000094    , 'aninvalidvalue'],
-		[:location                       , 32000000    , 'aninvalidvalue'],
+		[:clan_currentwar_leaguegroup,     nil,          'aninvalidvalue'],
+		[:clanwarleagues_war,              nil,          'aninvalidvalue'],
+		[:clan_warlog,                     '#2YYQPVGQQ', 'aninvalidvalue'],
+		[:clan_currentwar,                 '#2YYQPVGQQ', 'aninvalidvalue'],
+		[:clan,                            '#2YYQPVGQQ', 'aninvalidvalue'],
+		[:clan_members,                    '#2YYQPVGQQ', 'aninvalidvalue'],
+		[:player,                          '#QG8VUCRUQ', 'aninvalidvalue'],
+		[:league,                          29000000,     'aninvalidvalue'],
+		[:league_seasons,                  29000022,     'aninvalidvalue'], # League seasons are only available in the legendary league.
+		[:warleague,                       48000000,     'aninvalidvalue'],
+		[:location_rankings_clans,         32000094,     'aninvalidvalue'],
+		[:location_rankings_players,       32000094,     'aninvalidvalue'],
+		[:location_rankings_clansversus,   32000094,     'aninvalidvalue'],
+		[:location_rankings_playersversus, 32000094,     'aninvalidvalue'],
+		[:location,                        32000000,     'aninvalidvalue'],
 	].each do |method_name, argument, invalid_argument|
 		describe "##{method_name}" do
 			it 'requires one argument' do
