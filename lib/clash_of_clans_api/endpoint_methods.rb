@@ -43,7 +43,6 @@ module ClashOfClansApi
 			end
 		end
 		
-		
 		def self.included(klass)
 			klass.extend(ClassMethods)
 		end
