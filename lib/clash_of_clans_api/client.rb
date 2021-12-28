@@ -1,5 +1,6 @@
 require_relative 'api'
 require_relative 'models/paginated_response'
+require_relative 'models/player'
 require_relative 'models/league'
 
 module ClashOfClansApi
@@ -36,6 +37,10 @@ module ClashOfClansApi
 		
 		def league(id)
 			Models::League.new(api.league(id))
+		end
+		
+		def player(tag)
+			Models::Player.new(api.player(tag))
 		end
 	end
 end

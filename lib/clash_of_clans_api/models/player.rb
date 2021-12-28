@@ -1,0 +1,36 @@
+require_relative 'base'
+require_relative 'league'
+
+module ClashOfClansApi
+	module Models
+		class Player < Base
+			property :tag,                     'tag',                  required: true
+			property :name,                    'name',                 required: true
+			property :town_hall_level,         'townHallLevel'
+			property :town_hall_weapon_level,  'townHallWeaponLevel'
+			property :exp_level,               'expLevel'
+			property :trophies,                'trophies',             required: true
+			property :best_trophies,           'bestTrophies'
+			property :war_stars,               'warStars'
+			property :attack_wins,             'attackWins'
+			property :defense_wins,            'defenseWins'
+			property :builder_hall_level,      'builderHallLevel'
+			property :versus_trophies,         'versusTrophies'
+			property :best_versus_trophies,    'bestVersusTrophies'
+			property :versus_battle_wins,      'versusBattleWins'
+			property :role,                    'role'
+			property :war_preference,          'warPreference'
+			property :donations,               'donations'
+			property :donations_received,      'donationsReceived'
+			property :clan,                    'clan'
+			property :league,                  'league',               type: League
+			property :legend_statistics,       'legendStatistics'
+			property :achievements,            'achievements'
+			property :versus_battle_win_count, 'versusBattleWinCount'
+			property :labels,                  'labels'
+			property :troops,                  'troops'
+			property :heroes,                  'heroes'
+			property :spells,                  'spells'
+		end
+	end
+end
