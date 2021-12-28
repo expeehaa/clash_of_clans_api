@@ -22,6 +22,8 @@ module ClashOfClansApi
 				
 				def property(name, key, type: nil, required: false)
 					define_method(name) do
+						type = send(type) if type.is_a?(Symbol)
+						
 						if type.nil?
 							self[key]
 						elsif property_cached?(name)
