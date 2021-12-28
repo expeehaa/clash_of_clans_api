@@ -22,6 +22,7 @@ module ClashOfClansApi
 			property :war_preference,          'warPreference'
 			property :donations,               'donations'
 			property :donations_received,      'donationsReceived'
+			property :rank,                    'rank'
 			property :clan,                    'clan'
 			property :league,                  'league',               type: League
 			property :legend_statistics,       'legendStatistics'
