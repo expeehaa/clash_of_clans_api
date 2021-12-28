@@ -12,7 +12,7 @@ module ClashOfClansApi
 		end
 		
 		def authorized?
-			api.perform_get('test').code == '404'
+			api.perform_request(:get, 'test').code == '404'
 		end
 		
 		def player_verifytoken(player_tag, token)
