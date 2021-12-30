@@ -24,25 +24,25 @@ RSpec.describe ClashOfClansApi::Models::IconSet do
 	end
 	
 	describe '#tiny' do
-		it 'returns thevalue of key "tiny"' do
+		it 'returns the value of key "tiny"' do
 			expect(instance.tiny).to eq 'tiny'
 		end
 	end
 	
 	describe '#small' do
-		it 'returns thevalue of key "small"' do
+		it 'returns the value of key "small"' do
 			expect(instance.small).to eq 'small'
 		end
 	end
 	
 	describe '#medium' do
-		it 'returns thevalue of key "medium"' do
+		it 'returns the value of key "medium"' do
 			expect(instance.medium).to eq 'medium'
 		end
 	end
 	
 	describe '#large' do
-		it 'returns thevalue of key "large"' do
+		it 'returns the value of key "large"' do
 			expect(instance.large).to eq 'large'
 		end
 	end
