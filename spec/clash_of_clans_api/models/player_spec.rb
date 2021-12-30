@@ -51,7 +51,16 @@ RSpec.describe ClashOfClansApi::Models::Player do
 				},
 			],
 			'versusBattleWinCount' => 3,
-			'labels'               => nil,
+			'labels'               => [
+				{
+					'id'       => 57000008,
+					'name'     => 'Active Donator',
+					'iconUrls' => {
+						'small'  => 'https://api-assets.clashofclans.com/labels/64/MvL0LDt0yv9AI-Vevpu8yE5NAJUIV05Ofpsr4IfGRxQ.png',
+						'medium' => 'https://api-assets.clashofclans.com/labels/128/MvL0LDt0yv9AI-Vevpu8yE5NAJUIV05Ofpsr4IfGRxQ.png',
+					},
+				},
+			],
 			'troops'               => nil,
 			'heroes'               => nil,
 			'spells'               => nil,
@@ -217,7 +226,8 @@ RSpec.describe ClashOfClansApi::Models::Player do
 	
 	describe '#labels' do
 		it 'returns the value of key "labels"' do
-			expect(instance.labels).to eq nil
+			expect(instance.labels     ).to all be_a ClashOfClansApi::Models::Label
+			expect(instance.labels.size).to eq 1
 		end
 	end
 	

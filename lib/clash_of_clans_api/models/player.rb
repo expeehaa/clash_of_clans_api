@@ -1,5 +1,6 @@
 require_relative 'base'
 require_relative 'achievement'
+require_relative 'label'
 require_relative 'league'
 
 module ClashOfClansApi
@@ -29,7 +30,7 @@ module ClashOfClansApi
 			property :legend_statistics,       'legendStatistics'
 			property :achievements,            'achievements',         type: Achievement
 			property :versus_battle_win_count, 'versusBattleWinCount'
-			property :labels,                  'labels'
+			property :labels,                  'labels',               type: Label
 			property :troops,                  'troops'
 			property :heroes,                  'heroes'
 			property :spells,                  'spells'
