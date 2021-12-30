@@ -8,12 +8,26 @@ require 'pry'
 
 # :nodoc:
 class Console
+	TOKEN_NAME = 'clash_of_clans_api_test'
+	
 	attr_accessor :client
 	attr_accessor :tclient
 	
 	def initialize
 		self.client  = ClashOfClansApi::Client.new(ENV['CLASH_OF_CLANS_API_TOKEN']) if ENV['CLASH_OF_CLANS_API_TOKEN']
 		self.tclient = ClashOfClansApi::TokenClient.new(ENV['CLASH_OF_CLANS_TOKEN_API_EMAIL'], ENV['CLASH_OF_CLANS_TOKEN_API_PASSWORD'])
+	end
+	
+	def regen_client
+		current_ipv4 = ClashOfClansApi::Utils.current_ipv4_address
+		token        = self.tclient.list_api_keys.select{ |i| i.name == TOKEN_NAME }.first
+		
+		if !token || !token.cidr_ranges.include?(current_ipv4)
+			token&.revoke
+			token = self.tclient.create_api_key(TOKEN_NAME, 'test', current_ipv4)
+		end
+		
+		self.client = token.client_from_token
 	end
 end
 
