@@ -30,7 +30,26 @@ RSpec.describe ClashOfClansApi::Models::Player do
 				},
 			},
 			'legendStatistics'     => nil,
-			'achievements'         => nil,
+			'achievements'         => [
+				{
+					'name'           => 'Bigger Coffers',
+					'stars'          => 1,
+					'value'          => 3,
+					'target'         => 5,
+					'info'           => 'Upgrade a Gold Storage to level 5',
+					'completionInfo' => 'Highest Gold Storage level: 3',
+					'village'        => 'home',
+				},
+				{
+					'name'           => 'Get those other Goblins!',
+					'stars'          => 1,
+					'value'          => 22,
+					'target'         => 200,
+					'info'           => 'Win 200 Stars on the Campaign Map',
+					'completionInfo' => 'Stars in Campaign Map: 22',
+					'village'        => 'home',
+				},
+			],
 			'versusBattleWinCount' => 3,
 			'labels'               => nil,
 			'troops'               => nil,
@@ -185,7 +204,8 @@ RSpec.describe ClashOfClansApi::Models::Player do
 	
 	describe '#achievements' do
 		it 'returns the value of key "achievements"' do
-			expect(instance.achievements).to eq nil
+			expect(instance.achievements     ).to all be_a ClashOfClansApi::Models::Achievement
+			expect(instance.achievements.size).to eq 2
 		end
 	end
 	
