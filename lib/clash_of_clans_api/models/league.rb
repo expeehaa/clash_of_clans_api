@@ -6,7 +6,7 @@ module ClashOfClansApi
 		class League < Base
 			property :id,        'id',       required: true
 			property :name,      'name',     required: true
-			property :icon_urls, 'iconUrls', type: IconSet
+			property :icon_urls, 'iconUrls', required: true, type: IconSet
 		end
 	end
 end

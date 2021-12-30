@@ -10,10 +10,8 @@ RSpec.describe ClashOfClansApi::Models::League do
 		end
 		
 		it 'validates the argument key requirements' do
-			expect{ClashOfClansApi::Models::League.new({                          }, 4)}.    to raise_error ClashOfClansApi::Models::InvalidDataError, 'The following keys are required, but missing from the model data: "id", "name"'
-			expect{ClashOfClansApi::Models::League.new({'id' => nil               }, 4)}.    to raise_error ClashOfClansApi::Models::InvalidDataError, 'The following keys are required, but missing from the model data: "name"'
-			expect{ClashOfClansApi::Models::League.new({             'name' => nil}, 4)}.    to raise_error ClashOfClansApi::Models::InvalidDataError, 'The following keys are required, but missing from the model data: "id"'
-			expect{ClashOfClansApi::Models::League.new({'id' => nil, 'name' => nil}, 4)}.not_to raise_error
+			expect{ClashOfClansApi::Models::League.new({}, 4)}.    to raise_error ClashOfClansApi::Models::InvalidDataError, 'The following keys are required, but missing from the model data: "id", "name", "iconUrls"'
+			expect{instance                                  }.not_to raise_error
 		end
 	end
 	
