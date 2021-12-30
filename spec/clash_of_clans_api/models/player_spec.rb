@@ -29,7 +29,23 @@ RSpec.describe ClashOfClansApi::Models::Player do
 					'tiny' => 'https://api-assets.clashofclans.com/leagues/72/8OhXcwDJkenBH2kPH73eXftFOpHHRF-b32n0yrTqC44.png',
 				},
 			},
-			'legendStatistics'     => nil,
+			'legendStatistics'     => {
+				'legendTrophies' => 12525,
+				'previousSeason' => {
+					'id'       => '2021-12',
+					'rank'     => 13788,
+					'trophies' => 5620,
+				},
+				'bestSeason'     => {
+					'id'       => '2021-12',
+					'rank'     => 13788,
+					'trophies' => 5620,
+				},
+				'currentSeason'  => {
+					'rank'     => 291,
+					'trophies' => 4988,
+				},
+			},
 			'achievements'         => [
 				{
 					'name'           => 'Bigger Coffers',
@@ -228,7 +244,7 @@ RSpec.describe ClashOfClansApi::Models::Player do
 	
 	describe '#legend_statistics' do
 		it 'returns the value of key "legendStatistics"' do
-			expect(instance.legend_statistics).to eq nil
+			expect(instance.legend_statistics).to be_a ClashOfClansApi::Models::LegendStatistics
 		end
 	end
 	
