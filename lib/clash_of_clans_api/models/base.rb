@@ -3,8 +3,11 @@ require_relative 'invalid_data_error'
 module ClashOfClansApi
 	module Models
 		class Base
-			def initialize(hash)
-				@hash = hash
+			attr_reader :client
+			
+			def initialize(hash, client)
+				@hash   = hash
+				@client = client
 				
 				validate!
 			end
@@ -29,8 +32,16 @@ module ClashOfClansApi
 						elsif property_cached?(name)
 							property_from_cache(name)
 						else
+							initializer_proc = proc do |item|
+								if type.ancestors.include?(ClashOfClansApi::Models::Base)
+									type.new(item, self.client)
+								else
+									type.new(item)
+								end
+							end
+							
 							cache_property(name, self[key].then do |prop|
-								prop.is_a?(Array) ? prop.map { |item| type.new(item) } : type.new(prop)
+								prop.is_a?(Array) ? prop.map(&initializer_proc) : initializer_proc.call(prop)
 							end)
 						end
 					end

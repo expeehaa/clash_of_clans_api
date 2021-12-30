@@ -36,14 +36,14 @@ module ClashOfClansApi
 			response = TokenApi.apikey_list(headers: @session_headers)
 			
 			response['keys'].map do |key|
-				Models::Token.new(key, token_client: self)
+				Models::Token.new(key, self)
 			end
 		end
 		
 		def create_api_key(name, description, ip_addresses)
 			response = TokenApi.apikey_create(name: name, description: description, ip_addresses: (ip_addresses.is_a?(Array) ? ip_addresses : [ip_addresses]), headers: @session_headers)
 			
-			Models::Token.new(response['key'], token_client: self)
+			Models::Token.new(response['key'], self)
 		end
 		
 		def revoke_api_key(id)

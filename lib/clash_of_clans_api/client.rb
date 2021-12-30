@@ -32,19 +32,19 @@ module ClashOfClansApi
 		end
 		
 		def leagues
-			Models::PaginatedResponse.new(Models::League, api.leagues)
+			Models::PaginatedResponse.new(Models::League, api.leagues, self)
 		end
 		
 		def league(id)
-			Models::League.new(api.league(id))
+			Models::League.new(api.league(id), self)
 		end
 		
 		def player(tag)
-			Models::Player.new(api.player(tag))
+			Models::Player.new(api.player(tag), self)
 		end
 		
 		def league_season(league_id=29000022, season_id, limit: nil, before: nil, after: nil) # rubocop:disable Style/OptionalArguments
-			Models::PaginatedResponse.new(Models::Player, api.league_season(league_id, season_id, query: {limit: limit, before: before, after: after}.compact))
+			Models::PaginatedResponse.new(Models::Player, api.league_season(league_id, season_id, query: {limit: limit, before: before, after: after}.compact), self)
 		end
 	end
 end

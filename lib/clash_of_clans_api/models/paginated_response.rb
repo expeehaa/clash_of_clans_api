@@ -8,10 +8,10 @@ module ClashOfClansApi
 			property :items,  'items',  type: :item_type, required: true
 			property :paging, 'paging'
 			
-			def initialize(item_type, hash)
+			def initialize(item_type, hash, client)
 				self.item_type = item_type
 				
-				super(hash)
+				super(hash, client)
 			end
 		end
 	end

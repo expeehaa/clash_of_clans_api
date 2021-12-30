@@ -7,12 +7,19 @@ RSpec.describe ClashOfClansApi::Models::IconSet do
 			'small'  => 'small',
 			'medium' => 'medium',
 			'large'  => 'large',
-		})
+		}, 5)
 	end
 	
 	describe '.new' do
-		it 'requires an argument' do
-			expect{ClashOfClansApi::Models::IconSet.new}.to raise_error ArgumentError, 'wrong number of arguments (given 0, expected 1)'
+		it 'requires two arguments' do
+			expect{ClashOfClansApi::Models::IconSet.new    }.to raise_error ArgumentError, 'wrong number of arguments (given 0, expected 2)'
+			expect{ClashOfClansApi::Models::IconSet.new({})}.to raise_error ArgumentError, 'wrong number of arguments (given 1, expected 2)'
+		end
+	end
+	
+	describe '#client' do
+		it 'returns the second constructor argument' do
+			expect(instance.client).to eq 5
 		end
 	end
 	

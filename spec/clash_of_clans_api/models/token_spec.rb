@@ -14,18 +14,17 @@ RSpec.describe ClashOfClansApi::Models::Token do
 			'cidrRanges'  => ['1.1.1.1', '5.5.5.5'],
 			'validUntil'  => 'it is invalid',
 			'key'         => 'mysupercoolkey',
-		}, token_client: token_client)
+		}, token_client)
 	end
 	
 	describe '.new' do
 		it 'requires two arguments' do
-			expect{ClashOfClansApi::Models::Token.new                       }.    to raise_error ArgumentError, 'wrong number of arguments (given 0, expected 1; required keyword: token_client)'
-			expect{ClashOfClansApi::Models::Token.new({}                   )}.    to raise_error ArgumentError, 'missing keyword: :token_client'
-			expect{ClashOfClansApi::Models::Token.new(    token_client: nil)}.    to raise_error ArgumentError, 'wrong number of arguments (given 0, expected 1; required keyword: token_client)'
+			expect{ClashOfClansApi::Models::Token.new    }.    to raise_error ArgumentError, 'wrong number of arguments (given 0, expected 2)'
+			expect{ClashOfClansApi::Models::Token.new({})}.    to raise_error ArgumentError, 'wrong number of arguments (given 1, expected 2)'
 		end
 		
 		it 'validates the argument key requirements' do
-			expect{ClashOfClansApi::Models::Token.new({}, token_client: nil)}.to raise_error ClashOfClansApi::Models::InvalidDataError, 'The following keys are required, but missing from the model data: "id", "name", "description", "cidrRanges", "key"'
+			expect{ClashOfClansApi::Models::Token.new({}, nil)}.to raise_error ClashOfClansApi::Models::InvalidDataError, 'The following keys are required, but missing from the model data: "id", "name", "description", "cidrRanges", "key"'
 		end
 	end
 	

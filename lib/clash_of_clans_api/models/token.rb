@@ -14,14 +14,8 @@ module ClashOfClansApi
 			property :valid_until,  'validUntil'
 			property :key,          'key',         required: true
 			
-			def initialize(hash, token_client:)
-				super(hash)
-				
-				@token_client = token_client
-			end
-			
 			def revoke
-				@token_client.revoke_api_key(self.id)
+				self.client.revoke_api_key(self.id)
 			end
 			
 			def client_from_token
