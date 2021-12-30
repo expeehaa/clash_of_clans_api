@@ -77,7 +77,14 @@ RSpec.describe ClashOfClansApi::Models::Player do
 					'village'  => 'home',
 				},
 			],
-			'spells'               => nil,
+			'spells'               => [
+				{
+					'name'     => 'Invisibility Spell',
+					'level'    => 3,
+					'maxLevel' => 4,
+					'village'  => 'home',
+				},
+			],
 		}, 5)
 	end
 	
@@ -261,7 +268,8 @@ RSpec.describe ClashOfClansApi::Models::Player do
 	
 	describe '#spells' do
 		it 'returns the value of key "spells"' do
-			expect(instance.spells).to eq nil
+			expect(instance.spells     ).to all be_a ClashOfClansApi::Models::Spell
+			expect(instance.spells.size).to eq 1
 		end
 	end
 end

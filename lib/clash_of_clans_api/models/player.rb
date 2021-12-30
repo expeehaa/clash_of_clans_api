@@ -3,6 +3,7 @@ require_relative 'achievement'
 require_relative 'hero'
 require_relative 'label'
 require_relative 'league'
+require_relative 'spell'
 require_relative 'troop'
 
 module ClashOfClansApi
@@ -35,7 +36,7 @@ module ClashOfClansApi
 			property :labels,                  'labels',               type: Label
 			property :troops,                  'troops',               type: Troop
 			property :heroes,                  'heroes',               type: Hero
-			property :spells,                  'spells'
+			property :spells,                  'spells',               type: Spell
 		end
 	end
 end
