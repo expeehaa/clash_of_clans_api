@@ -15,7 +15,11 @@ class Console
 	
 	def initialize
 		self.client  = ClashOfClansApi::Client.new(ENV['CLASH_OF_CLANS_API_TOKEN']) if ENV['CLASH_OF_CLANS_API_TOKEN']
-		self.tclient = ClashOfClansApi::TokenClient.new(ENV['CLASH_OF_CLANS_TOKEN_API_EMAIL'], ENV['CLASH_OF_CLANS_TOKEN_API_PASSWORD'])
+		self.tclient = [ENV['CLASH_OF_CLANS_TOKEN_API_EMAIL'], ENV['CLASH_OF_CLANS_TOKEN_API_PASSWORD']].then do |email, password|
+			if email && password
+				ClashOfClansApi::TokenClient.new(email, password)
+			end
+		end
 	end
 	
 	def regen_client
