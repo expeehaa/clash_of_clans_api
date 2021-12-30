@@ -21,7 +21,16 @@ RSpec.describe ClashOfClansApi::Models::Player do
 			'warPreference'        => 'inorout',
 			'donations'            => 51255132,
 			'donationsReceived'    => 154656,
-			'clan'                 => nil,
+			'clan'                 => {
+				'tag'       => '#2YYQPVGQQ',
+				'name'      => 'ClashOfClansApi',
+				'clanLevel' => 1,
+				'badgeUrls' => {
+					'small'  => 'https://api-assets.clashofclans.com/badges/70/GgVu5CHf0vL7NNvjqQbqCQpxoPKn6HjvI1V6XNOuWRA.png',
+					'large'  => 'https://api-assets.clashofclans.com/badges/512/GgVu5CHf0vL7NNvjqQbqCQpxoPKn6HjvI1V6XNOuWRA.png',
+					'medium' => 'https://api-assets.clashofclans.com/badges/200/GgVu5CHf0vL7NNvjqQbqCQpxoPKn6HjvI1V6XNOuWRA.png',
+				},
+			},
 			'league'               => {
 				'id'       => 123,
 				'name'     => 'Test rank',
@@ -232,7 +241,7 @@ RSpec.describe ClashOfClansApi::Models::Player do
 	
 	describe '#clan' do
 		it 'returns the value of key "clan"' do
-			expect(instance.clan).to eq nil
+			expect(instance.clan).to be_a ClashOfClansApi::Models::Clan
 		end
 	end
 	

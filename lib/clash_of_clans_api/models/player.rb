@@ -1,5 +1,6 @@
 require_relative 'base'
 require_relative 'achievement'
+require_relative 'clan'
 require_relative 'hero'
 require_relative 'label'
 require_relative 'league'
@@ -29,7 +30,7 @@ module ClashOfClansApi
 			property :donations,               'donations'
 			property :donations_received,      'donationsReceived'
 			property :rank,                    'rank'
-			property :clan,                    'clan'
+			property :clan,                    'clan',                 type: Clan
 			property :league,                  'league',               type: League
 			property :legend_statistics,       'legendStatistics',     type: LegendStatistics
 			property :achievements,            'achievements',         type: Achievement
