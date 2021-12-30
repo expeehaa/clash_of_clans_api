@@ -1,7 +1,15 @@
 require 'spec_helper'
 
 RSpec.describe ClashOfClansApi::Models::League do
-	let(:instance) { ClashOfClansApi::Models::League.new({'id' => 123, 'name' => 'Test rank', 'iconUrls' => {'tiny' => 'https://api-assets.clashofclans.com/leagues/72/8OhXcwDJkenBH2kPH73eXftFOpHHRF-b32n0yrTqC44.png'}}, 5) }
+	let(:instance) do
+		ClashOfClansApi::Models::League.new({
+			'id'       => 123,
+			'name'     => 'Test rank',
+			'iconUrls' => {
+				'tiny' => 'https://api-assets.clashofclans.com/leagues/72/8OhXcwDJkenBH2kPH73eXftFOpHHRF-b32n0yrTqC44.png',
+			},
+		}, 5)
+	end
 	
 	describe '.new' do
 		it 'requires an argument' do
@@ -35,8 +43,7 @@ RSpec.describe ClashOfClansApi::Models::League do
 	
 	describe '#icon_urls' do
 		it 'returns the value of key "iconUrls"' do
-			expect(instance.icon_urls     ).to be_a ClashOfClansApi::Models::IconSet
-			expect(instance.icon_urls.tiny).to eq   'https://api-assets.clashofclans.com/leagues/72/8OhXcwDJkenBH2kPH73eXftFOpHHRF-b32n0yrTqC44.png'
+			expect(instance.icon_urls).to be_a ClashOfClansApi::Models::IconSet
 		end
 	end
 end
