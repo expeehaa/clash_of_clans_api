@@ -61,7 +61,14 @@ RSpec.describe ClashOfClansApi::Models::Player do
 					},
 				},
 			],
-			'troops'               => nil,
+			'troops'               => [
+				{
+					'name'     => 'Barbarian',
+					'level'    => 10,
+					'maxLevel' => 10,
+					'village'  => 'home',
+				},
+			],
 			'heroes'               => nil,
 			'spells'               => nil,
 		}, 5)
@@ -233,7 +240,8 @@ RSpec.describe ClashOfClansApi::Models::Player do
 	
 	describe '#troops' do
 		it 'returns the value of key "troops"' do
-			expect(instance.troops).to eq nil
+			expect(instance.troops     ).to all be_a ClashOfClansApi::Models::Troop
+			expect(instance.troops.size).to eq 1
 		end
 	end
 	
