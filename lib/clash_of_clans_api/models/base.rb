@@ -23,11 +23,13 @@ module ClashOfClansApi
 			class << self
 				attr_reader :required_fields
 				
-				def property(name, key, type: nil, required: false)
+				def property(name, key, type: nil, required: false, default: nil)
 					define_method(name) do
 						type = send(type) if type.is_a?(Symbol)
 						
-						if type.nil?
+						if !@hash.key?(key) && !default.nil?
+							default
+						elsif type.nil?
 							self[key]
 						elsif property_cached?(name)
 							property_from_cache(name)
