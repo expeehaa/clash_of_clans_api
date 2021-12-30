@@ -47,19 +47,19 @@ RSpec.describe ClashOfClansApi::Models::LegendStatistics do
 	
 	describe '#previous_season' do
 		it 'returns the value of key "previousSeason"' do
-			expect(instance.previous_season).to be_a Hash
+			expect(instance.previous_season).to be_a ClashOfClansApi::Models::LegendSeason
 		end
 	end
 	
 	describe '#best_season' do
 		it 'returns the value of key "bestSeason"' do
-			expect(instance.best_season).to be_a Hash
+			expect(instance.best_season).to be_a ClashOfClansApi::Models::LegendSeason
 		end
 	end
 	
 	describe '#current_season' do
 		it 'returns the value of key "currentSeason"' do
-			expect(instance.current_season).to be_a Hash
+			expect(instance.current_season).to be_a ClashOfClansApi::Models::LegendSeason
 		end
 	end
 end
