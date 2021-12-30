@@ -20,6 +20,16 @@ class Console
 				ClashOfClansApi::TokenClient.new(email, password)
 			end
 		end
+		
+		if self.tclient
+			begin
+				self.tclient.login!
+				
+				puts 'Token client logged in successfully.'
+			rescue ClashOfClansApi::NoSuccessError => e
+				warn "Failed to log in token client: #{e}"
+			end
+		end
 	end
 	
 	def regen_client
