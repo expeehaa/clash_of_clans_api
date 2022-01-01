@@ -1,5 +1,6 @@
 require_relative 'api'
 require_relative 'models/paginated_response'
+require_relative 'models/clan'
 require_relative 'models/player'
 require_relative 'models/league'
 
@@ -29,6 +30,10 @@ module ClashOfClansApi
 			else
 				raise "Unknown status #{response['status'].inspect}."
 			end
+		end
+		
+		def clan(tag)
+			Models::Clan.new(api.clan(tag), self)
 		end
 		
 		def leagues

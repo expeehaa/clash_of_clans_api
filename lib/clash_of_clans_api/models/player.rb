@@ -1,6 +1,5 @@
 require_relative 'base'
 require_relative 'achievement'
-require_relative 'clan'
 require_relative 'hero'
 require_relative 'label'
 require_relative 'league'
