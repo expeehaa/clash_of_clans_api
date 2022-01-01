@@ -25,7 +25,15 @@ module ClashOfClansApi
 				
 				def property(name, key, type: nil, required: false, default: nil)
 					define_method(name) do
-						type = send(type) if type.is_a?(Symbol)
+						type =
+							case type
+								when Symbol
+									send(type)
+								when String
+									self.class.const_get(type)
+								else
+									type
+							end
 						
 						if !@hash.key?(key) && !default.nil?
 							default

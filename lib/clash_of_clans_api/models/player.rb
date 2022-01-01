@@ -29,7 +29,7 @@ module ClashOfClansApi
 			property :donations,               'donations'
 			property :donations_received,      'donationsReceived'
 			property :rank,                    'rank'
-			property :clan,                    'clan',                 type: Clan
+			property :clan,                    'clan',                 type: 'ClashOfClansApi::Models::Clan'
 			property :league,                  'league',               type: League
 			property :legend_statistics,       'legendStatistics',     type: LegendStatistics
 			property :achievements,            'achievements',         type: Achievement
