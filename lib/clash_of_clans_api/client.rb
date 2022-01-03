@@ -23,12 +23,12 @@ module ClashOfClansApi
 			raise "Sent token #{     token     .inspect} but received #{response['token'].inspect}." unless token      == response['token']
 			
 			case response['status']
-			when 'ok'
-				true
-			when 'invalid'
-				false
-			else
-				raise "Unknown status #{response['status'].inspect}."
+				when 'ok'
+					true
+				when 'invalid'
+					false
+				else
+					raise "Unknown status #{response['status'].inspect}."
 			end
 		end
 		

@@ -14,6 +14,10 @@ Bundler/OrderedGems:
 Layout/AccessModifierIndentation:
   Enabled: false
 
+Layout/CaseIndentation:
+  Enabled: true
+  IndentOneStep: true
+
 Layout/EndOfLine:
   Enabled: true
   EnforcedStyle: lf
