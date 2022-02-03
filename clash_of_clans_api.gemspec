@@ -10,7 +10,8 @@ Gem::Specification.new do |spec|
 	spec.summary  = 'Client library for interacting with the ClashOfClans API.'
 	spec.homepage = 'https://github.com/expeehaa/clash_of_clans_api'
 	
-	spec.metadata['allowed_push_host'] = 'https://rubygems.org'
+	spec.metadata['allowed_push_host']     = 'https://rubygems.org'
+	spec.metadata['rubygems_mfa_required'] = 'true'
 	
 	spec.files         = Dir['lib/**/*.rb', 'README.adoc']
 	spec.require_paths = ['lib']

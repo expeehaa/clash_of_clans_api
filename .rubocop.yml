@@ -1,8 +1,12 @@
 inherit_from: .rubocop_todo.yml
 
 require:
-- 'rubocop-rake'
 - 'rubocop-rspec'
+
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+
 
 # Bundler
 
@@ -80,6 +84,9 @@ Layout/SpaceBeforeBlockBraces:
 Layout/SpaceBeforeComma:
   Enabled: true
 
+Layout/SpaceInsideArrayLiteralBrackets:
+  Enabled: false
+
 Layout/SpaceInsideBlockBraces:
   Enabled: true
   EnforcedStyle: space
@@ -117,6 +124,12 @@ Lint/UnusedBlockArgument:
 Lint/UselessAssignment:
   Exclude:
     - 'bin/console'
+
+# Naming
+
+# TODO: Decide on a naming scheme or remove this TODO.
+Naming/VariableNumber:
+  Enabled: false
 
 # RSpec
 
@@ -164,6 +177,9 @@ Metrics/PerceivedComplexity:
 
 # RSpec
 
+RSpec/DescribeClass:
+  Enabled: false
+
 RSpec/DescribedClass:
   Enabled: true
   EnforcedStyle: explicit
@@ -181,6 +197,10 @@ Style/BarePercentLiterals:
 Style/EmptyBlockParameter:
   Enabled: false
 
+Style/EmptyElse:
+  Enabled: true
+  EnforcedStyle: empty
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 
@@ -197,6 +217,9 @@ Style/MultilineBlockChain:
   Enabled: false
 
 Style/NegatedIf:
+  Enabled: false
+
+Style/NegatedIfElseCondition:
   Enabled: false
 
 Style/NumericLiterals:
