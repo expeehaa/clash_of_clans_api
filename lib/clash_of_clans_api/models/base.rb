@@ -35,7 +35,7 @@ module ClashOfClansApi
 									type
 							end
 						
-						if !@hash.key?(key) && !default.nil?
+						if !@hash.key?(key)
 							default
 						elsif type.nil?
 							self[key]
