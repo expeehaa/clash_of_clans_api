@@ -36,6 +36,10 @@ module ClashOfClansApi
 			Models::Clan.new(api.clan(tag), self)
 		end
 		
+		def clan_members(tag)
+			Models::PaginatedResponse.new(Models::Player, api.clan_members(tag), self)
+		end
+		
 		def leagues
 			Models::PaginatedResponse.new(Models::League, api.leagues, self)
 		end
