@@ -54,10 +54,9 @@ A URL query in the form of a `Hash` can be passed as the named parameter `query:
 Tags in Clash of Clans are subject to format restrictions.
 Since those restrictions are well known, `ClashOfClansApi::Tags` provides class methods for checking the format (`.sanitizable?`) and sanitizing ill-formatted tags up to a certain degree (`.sanitize`).
 
-Even though the API seems to ignore some mistakes, e.g. using `O` (upper case letter o) instead of `0` (number zero), it also does not seem to correct them.
-If a player with tag `#PY0` existed, the API would return the same information for both `#PY0` and `#PYO`, except using the tag that was requested.
-This could lead to unforeseen errors like multiple database entries for the same player or clan.
-Therefore, those mistakes should be catched before sending a request.
+Since the beginning of 2022, the API consistently corrects the letter `O` in requests to the number `0`, which was not the case before.
+Previously, this could lead to multiple database entries for the same player, which the `.sanitize` method could prevent.
+While this isn’t a problem anymore in this specific use case, it might come in handy for querying user input in ones own database.
 
 
 === Development
