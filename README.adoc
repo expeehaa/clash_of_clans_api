@@ -28,8 +28,8 @@ $ gem install clash_of_clans_api
 
 ==== API Communication
 
-To communicate with the Clash of Clans API, an API access token is required.
-Currently, the gem is not able to create tokens itself.
+To communicate with the Clash of Clans API, an API key is required.
+If you like to use the library to create and manage API keys, see <<Token API>>.
 
 The gem provides two classes for communication.
 `ClashOfClansApi::Api` is a low-level interface that implements methods for all API endpoints.
@@ -48,6 +48,34 @@ They are derived from the https://developer.clashofclans.com/#/documentation[API
 Path arguments are converted to positional arguments in the order of definition in the original path name.
 Path arguments will automatically be URL-escaped.
 A URL query in the form of a `Hash` can be passed as the named parameter `query:`.
+
+==== Token API
+
+Creating, listing and deleting API keys (tokens) is supported in `ClashOfClansApi::TokenClient` using the email address and password from the Clash of Clans Developer website.
+
+[source,ruby]
+----
+token_client = ClashOfClansApi::TokenClient.new(email, password)
+token_client.login!
+
+# Return a list of the currently registered API keys.
+token_client.list_api_keys
+
+# Create a new API key for the IP address 127.0.0.1 and create a ClashOfClansApi::Client from it.
+token  = token_client.create_api_key('my_key_name', 'This is a description for my API key.', ['127.0.0.1'])
+client = token.client_from_token
+
+# Revoke the previously generated token.
+token_client.revoke_api_key(token.id)
+
+# Logging out is not required, but possible.
+token_client.logout
+----
+
+This feature can be useful for applications whose host changes their IP address without human interaction as well as for large (federated) applications with too many requests for a single or a few manually created tokens.
+
+Similar to `ClashOfClansApi::Api` and `ClashOfClansApi::Client`, there is also a lower-level implementation of the token API in `ClashOfClansApi::TokenApi`.
+However, its usage is not recommended.
 
 ==== Clan and player tags
 
