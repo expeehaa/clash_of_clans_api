@@ -1,11 +1,11 @@
-require_relative 'endpoint_methods'
+require 'api_frame'
 
 module ClashOfClansApi
 	module TokenApi
 		BASE_URI = URI('https://developer.clashofclans.com/api/')
 		
 		class << self
-			include EndpointMethods
+			include ApiFrame::EndpointMethods
 			
 			def base_uri
 				BASE_URI

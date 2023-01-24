@@ -2,6 +2,18 @@ require 'spec_helper'
 
 RSpec.describe ClashOfClansApi::Api do
 	let(:api) { ClashOfClansApi::Api.new(ENV['CLASH_OF_CLANS_API_TOKEN']) }
+	let(:success_response) do
+		double(body: 'flying donkeys').tap do |doub|
+			allow(doub).to receive(:is_a?).with(Net::HTTPSuccess).and_return(true)
+		end
+	end
+	let(:donkey_transformer) do
+		proc do |response|
+			expect(response.body).to eq 'flying donkeys'
+			
+			'flying cows'
+		end
+	end
 	
 	before do |example|
 		if example.metadata[:coc_api_request] && (!ENV['CLASH_OF_CLANS_API_TOKEN'] || ENV['CLASH_OF_CLANS_API_TOKEN'].empty?)
@@ -32,15 +44,15 @@ RSpec.describe ClashOfClansApi::Api do
 			end
 			
 			it 'accepts query parameters' do
-				allow(api).to receive(:perform_request   ).once.with(any_args, query: {test: 5, asdf: 'i like trains'}, headers: nil, body: nil).and_return('flying donkeys')
-				allow(api).to receive(:transform_response).once.with('flying donkeys'                                                          ).and_return('flying cows'   )
+				allow(api).to receive(:perform_request        ).once.with(any_args, query: {test: 5, asdf: 'i like trains'}, headers: nil, body: nil).and_return(success_response)
+				allow(api).to receive(:default_response_parser).and_return(donkey_transformer)
 				
 				expect(api.send(method_name, 'some_test_string', query: {test: 5, asdf: 'i like trains'})).to eq 'flying cows'
 			end
 			
 			it 'raises an error with an invalid argument', coc_api_request: true do
 				expect{api.send(method_name, invalid_argument)}.to raise_error do |error|
-					expect(error         ).to be_a ClashOfClansApi::NoSuccessError
+					expect(error         ).to be_a ApiFrame::NoSuccessError
 					expect(error.response).to be_a(Net::HTTPNotFound).or be_a(Net::HTTPBadRequest)
 				end
 			end
@@ -72,8 +84,8 @@ RSpec.describe ClashOfClansApi::Api do
 			end
 			
 			it 'accepts query parameters' do
-				allow(api).to receive(:perform_request   ).once.with(any_args, query: {test: 5, asdf: 'i like trains'}, headers: nil, body: nil).and_return('flying donkeys')
-				allow(api).to receive(:transform_response).once.with('flying donkeys'                                                          ).and_return('flying cows'   )
+				allow(api).to receive(:perform_request        ).once.with(any_args, query: {test: 5, asdf: 'i like trains'}, headers: nil, body: nil).and_return(success_response)
+				allow(api).to receive(:default_response_parser).and_return(donkey_transformer)
 				
 				expect(api.send(method_name, query: {test: 5, asdf: 'i like trains'})).to eq 'flying cows'
 			end
@@ -96,7 +108,7 @@ RSpec.describe ClashOfClansApi::Api do
 		
 		it 'raises an error with an invalid argument', coc_api_request: true do
 			expect{api.player_verifytoken('aninvalidvalue', token: 'faketoken')}.to raise_error do |error|
-				expect(error         ).to be_a ClashOfClansApi::NoSuccessError
+				expect(error         ).to be_a ApiFrame::NoSuccessError
 				expect(error.response).to be_a Net::HTTPNotFound
 			end
 		end
