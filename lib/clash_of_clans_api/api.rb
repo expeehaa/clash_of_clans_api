@@ -31,12 +31,15 @@ module ClashOfClansApi
 		define_endpoint :clan_currentwar,                 method: :get,  endpoint: proc { |clan_tag               | "clans/#{ApiFrame::Utils.url_escape(clan_tag)}/currentwar"                                      }
 		define_endpoint :clan,                            method: :get,  endpoint: proc { |clan_tag               | "clans/#{ApiFrame::Utils.url_escape(clan_tag)}"                                                 }
 		define_endpoint :clan_members,                    method: :get,  endpoint: proc { |clan_tag               | "clans/#{ApiFrame::Utils.url_escape(clan_tag)}/members"                                         }
+		define_endpoint :clan_capitalraidseasons,         method: :get,  endpoint: proc { |clan_tag               | "clans/#{ApiFrame::Utils.url_escape(clan_tag)}/capitalraidseasons"                              }
 		
 		define_endpoint :player,                          method: :get,  endpoint: proc { |player_tag             | "players/#{ApiFrame::Utils.url_escape(player_tag)}"                                             }
 		define_endpoint :player_verifytoken,              method: :post, endpoint: proc { |player_tag             | "players/#{ApiFrame::Utils.url_escape(player_tag)}/verifytoken"                                 }, body: proc { |token:| %Q({"token":"#{token}"}) }
 		
+		define_endpoint :capitalleagues,                  method: :get,  endpoint:                                  'capitalleagues'
 		define_endpoint :leagues,                         method: :get,  endpoint:                                     'leagues'
 		define_endpoint :league_season,                   method: :get,  endpoint: proc { |   league_id, season_id|    "leagues/#{ApiFrame::Utils.url_escape(   league_id)}/seasons/#{ApiFrame::Utils.url_escape(season_id)}" }
+		define_endpoint :capitalleague,                   method: :get,  endpoint: proc { |capitalleague_id       | "capitalleagues/#{ApiFrame::Utils.url_escape(capitalleague_id)}"                                }
 		define_endpoint :league,                          method: :get,  endpoint: proc { |   league_id           |    "leagues/#{ApiFrame::Utils.url_escape(   league_id)}"                                        }
 		define_endpoint :league_seasons,                  method: :get,  endpoint: proc { |   league_id           |    "leagues/#{ApiFrame::Utils.url_escape(   league_id)}/seasons"                                }
 		define_endpoint :warleague,                       method: :get,  endpoint: proc { |warleague_id           | "warleagues/#{ApiFrame::Utils.url_escape(warleague_id)}"                                        }
@@ -47,6 +50,7 @@ module ClashOfClansApi
 		define_endpoint :location_rankings_clansversus,   method: :get,  endpoint: proc { |location_id            | "locations/#{ApiFrame::Utils.url_escape(location_id)}/rankings/clans-versus"                    }
 		define_endpoint :location_rankings_playersversus, method: :get,  endpoint: proc { |location_id            | "locations/#{ApiFrame::Utils.url_escape(location_id)}/rankings/players-versus"                  }
 		define_endpoint :locations,                       method: :get,  endpoint:                                  'locations'
+		define_endpoint :location_rankings_capitals,      method: :get,  endpoint: proc { |location_id            | "locations/#{ApiFrame::Utils.url_escape(location_id)}/rankings/capitals"                        }
 		define_endpoint :location,                        method: :get,  endpoint: proc { |location_id            | "locations/#{ApiFrame::Utils.url_escape(location_id)}"                                          }
 		
 		define_endpoint :goldpass_seasons_current,        method: :get,  endpoint:                                  'goldpass/seasons/current'

@@ -28,7 +28,9 @@ RSpec.describe ClashOfClansApi::Api do
 		[:clan_currentwar,                 '#2YYQPVGQQ', 'aninvalidvalue'],
 		[:clan,                            '#2YYQPVGQQ', 'aninvalidvalue'],
 		[:clan_members,                    '#2YYQPVGQQ', 'aninvalidvalue'],
+		[:clan_capitalraidseasons,         '#2YYQPVGQQ', 'aninvalidvalue'],
 		[:player,                          '#QG8VUCRUQ', 'aninvalidvalue'],
+		# [:capitalleague,                   85000022,     'aninvalidvalue'], # This endpoint currently always returns 400 Bad Request, thus is effectively unusable.
 		[:league,                          29000000,     'aninvalidvalue'],
 		[:league_seasons,                  29000022,     'aninvalidvalue'], # League seasons are only available in the legendary league.
 		[:warleague,                       48000000,     'aninvalidvalue'],
@@ -36,6 +38,7 @@ RSpec.describe ClashOfClansApi::Api do
 		[:location_rankings_players,       32000094,     'aninvalidvalue'],
 		[:location_rankings_clansversus,   32000094,     'aninvalidvalue'],
 		[:location_rankings_playersversus, 32000094,     'aninvalidvalue'],
+		[:location_rankings_capitals,      32000094,     'aninvalidvalue'],
 		[:location,                        32000000,     'aninvalidvalue'],
 	].each do |method_name, argument, invalid_argument|
 		describe "##{method_name}" do
@@ -69,6 +72,7 @@ RSpec.describe ClashOfClansApi::Api do
 	end
 	
 	[
+		:capitalleagues,
 		:leagues,
 		:warleagues,
 		:locations,
