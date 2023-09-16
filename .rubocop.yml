@@ -140,6 +140,10 @@ RSpec/MessageSpies:
   Enabled: true
   EnforcedStyle: receive
 
+RSpec/MetadataStyle:
+  Enabled: true
+  EnforcedStyle: hash
+
 RSpec/MultipleExpectations:
   Enabled: false
 
