@@ -23,6 +23,10 @@ module ClashOfClansApi
 			class << self
 				attr_reader :required_fields
 				
+				def registered_properties
+					@registered_properties ||= {}
+				end
+				
 				def property(name, key, type: nil, required: false, default: nil)
 					define_method(name) do
 						type =
@@ -59,6 +63,8 @@ module ClashOfClansApi
 					if required
 						@required_fields = (@required_fields || []) + [key]
 					end
+					
+					registered_properties[key] = name
 				end
 			end
 			
