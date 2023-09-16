@@ -30,7 +30,7 @@ RSpec.describe ClashOfClansApi::Api do
 		[:clan_members,                         '#2YYQPVGQQ', 'aninvalidvalue'],
 		[:clan_capitalraidseasons,              '#2YYQPVGQQ', 'aninvalidvalue'],
 		[:player,                               '#QG8VUCRUQ', 'aninvalidvalue'],
-		# [:capitalleague,                        85000022,     'aninvalidvalue'], # This endpoint currently always returns 400 Bad Request, thus is effectively unusable.
+		[:capitalleague,                        85000022,     'aninvalidvalue'],
 		[:league,                               29000000,     'aninvalidvalue'],
 		[:league_seasons,                       29000022,     'aninvalidvalue'], # League seasons are only available in the legendary league.
 		[:builderbaseleague,                    44000041,     'aninvalidvalue'],
