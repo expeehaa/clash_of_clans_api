@@ -40,6 +40,8 @@ module ClashOfClansApi
 		define_endpoint :leagues,                         method: :get,  endpoint:                                     'leagues'
 		define_endpoint :league_season,                   method: :get,  endpoint: proc { |   league_id, season_id|    "leagues/#{ApiFrame::Utils.url_escape(   league_id)}/seasons/#{ApiFrame::Utils.url_escape(season_id)}" }
 		define_endpoint :capitalleague,                   method: :get,  endpoint: proc { |capitalleague_id       | "capitalleagues/#{ApiFrame::Utils.url_escape(capitalleague_id)}"                                }
+		define_endpoint :builderbaseleague,               method: :get,  endpoint: proc { |builderbaseleague_id   | "builderbaseleagues/#{ApiFrame::Utils.url_escape(builderbaseleague_id)}"                        }
+		define_endpoint :builderbaseleagues,              method: :get,  endpoint:                                  'builderbaseleagues'
 		define_endpoint :league,                          method: :get,  endpoint: proc { |   league_id           |    "leagues/#{ApiFrame::Utils.url_escape(   league_id)}"                                        }
 		define_endpoint :league_seasons,                  method: :get,  endpoint: proc { |   league_id           |    "leagues/#{ApiFrame::Utils.url_escape(   league_id)}/seasons"                                }
 		define_endpoint :warleague,                       method: :get,  endpoint: proc { |warleague_id           | "warleagues/#{ApiFrame::Utils.url_escape(warleague_id)}"                                        }
@@ -48,6 +50,8 @@ module ClashOfClansApi
 		define_endpoint :location_rankings_clans,         method: :get,  endpoint: proc { |location_id            | "locations/#{ApiFrame::Utils.url_escape(location_id)}/rankings/clans"                           }
 		define_endpoint :location_rankings_players,       method: :get,  endpoint: proc { |location_id            | "locations/#{ApiFrame::Utils.url_escape(location_id)}/rankings/players"                         }
 		define_endpoint :location_rankings_clansversus,   method: :get,  endpoint: proc { |location_id            | "locations/#{ApiFrame::Utils.url_escape(location_id)}/rankings/clans-versus"                    }
+		define_endpoint :location_rankings_playersbuilderbase, method: :get, endpoint: proc { |location_id            | "locations/#{ApiFrame::Utils.url_escape(location_id)}/rankings/players-builder-base"            }
+		define_endpoint :location_rankings_clansbuilderbase,   method: :get, endpoint: proc { |location_id            | "locations/#{ApiFrame::Utils.url_escape(location_id)}/rankings/clans-builder-base"              }
 		define_endpoint :location_rankings_playersversus, method: :get,  endpoint: proc { |location_id            | "locations/#{ApiFrame::Utils.url_escape(location_id)}/rankings/players-versus"                  }
 		define_endpoint :locations,                       method: :get,  endpoint:                                  'locations'
 		define_endpoint :location_rankings_capitals,      method: :get,  endpoint: proc { |location_id            | "locations/#{ApiFrame::Utils.url_escape(location_id)}/rankings/capitals"                        }
