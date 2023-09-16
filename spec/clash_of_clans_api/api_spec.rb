@@ -3,9 +3,19 @@ require 'spec_helper'
 RSpec.describe ClashOfClansApi::Api do
 	let(:api) { ClashOfClansApi::Api.new(ENV.fetch('CLASH_OF_CLANS_API_TOKEN', nil)) }
 	let(:success_response) do
-		double(body: 'flying donkeys').tap do |doub|
-			allow(doub).to receive(:is_a?).with(Net::HTTPSuccess).and_return(true)
-		end
+		Class.new do
+			def body
+				'flying donkeys'
+			end
+			
+			def is_a?(klass)
+				if klass == Net::HTTPSuccess
+					true
+				else
+					raise "Expected Net::HTTPSuccess, got #{klass.inspect}."
+				end
+			end
+		end.new
 	end
 	let(:donkey_transformer) do
 		proc do |response|
