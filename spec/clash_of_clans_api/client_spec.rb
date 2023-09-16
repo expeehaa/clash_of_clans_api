@@ -33,13 +33,13 @@ RSpec.describe ClashOfClansApi::Client do
 		it 'returns true with status "ok"' do
 			expect(client.api).to receive(:player_verifytoken).with('test_tag', token: 'asdf').once.and_return({'tag' => 'test_tag', 'token' => 'asdf', 'status' => 'ok'})
 			
-			expect(client.player_verifytoken('test_tag', 'asdf')).to eq true
+			expect(client.player_verifytoken('test_tag', 'asdf')).to be true
 		end
 		
 		it 'returns false with status "invalid"' do
 			expect(client.api).to receive(:player_verifytoken).with('test_tag', token: 'asdf').once.and_return({'tag' => 'test_tag', 'token' => 'asdf', 'status' => 'invalid'})
 			
-			expect(client.player_verifytoken('test_tag', 'asdf')).to eq false
+			expect(client.player_verifytoken('test_tag', 'asdf')).to be false
 		end
 		
 		it 'raises an error with any other status' do

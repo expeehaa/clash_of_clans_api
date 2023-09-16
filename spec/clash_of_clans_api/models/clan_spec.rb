@@ -191,7 +191,7 @@ RSpec.describe ClashOfClansApi::Models::Clan do
 	
 	describe '#is_war_log_public' do
 		it 'returns the value of key "isWarLogPublic"' do
-			expect(instance.is_war_log_public).to eq true
+			expect(instance.is_war_log_public).to be true
 		end
 	end
 	

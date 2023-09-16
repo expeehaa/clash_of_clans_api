@@ -110,19 +110,19 @@ RSpec.describe ClashOfClansApi::Tags do
 	describe '.sanitizable?' do
 		it 'returns true for all proper_tags' do
 			proper_tags.each do |tag|
-				expect(ClashOfClansApi::Tags.sanitizable?(tag)).to eq true
+				expect(ClashOfClansApi::Tags.sanitizable?(tag)).to be true
 			end
 		end
 		
 		it 'returns true for all sanitizable_tags' do
 			sanitizable_tags.each do |tag|
-				expect(ClashOfClansApi::Tags.sanitizable?(tag)).to eq true
+				expect(ClashOfClansApi::Tags.sanitizable?(tag)).to be true
 			end
 		end
 		
 		it 'returns false for all wrong_tags' do
 			wrong_tags.each do |tag|
-				expect(ClashOfClansApi::Tags.sanitizable?(tag)).to eq false
+				expect(ClashOfClansApi::Tags.sanitizable?(tag)).to be false
 			end
 		end
 	end

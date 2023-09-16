@@ -64,12 +64,12 @@ RSpec.describe ClashOfClansApi::Models::Troop do
 	
 	describe '#super_troop_is_active' do
 		it 'returns the default value "false"' do
-			expect(instance.instance_variable_get(:@hash).key?('superTroopIsActive')).to eq false
-			expect(instance.super_troop_is_active                                   ).to eq false
+			expect(instance.instance_variable_get(:@hash).key?('superTroopIsActive')).to be false
+			expect(instance.super_troop_is_active                                   ).to be false
 		end
 		
 		it 'returns the value of key "superTroopIsActive"' do
-			expect(instance_with_supertroop_active.super_troop_is_active).to eq true
+			expect(instance_with_supertroop_active.super_troop_is_active).to be true
 		end
 	end
 end
