@@ -33,7 +33,7 @@ If you like to use the library to create and manage API keys, see <<Token API>>.
 
 The gem provides two classes for communication.
 `ClashOfClansApi::Api` is a low-level interface that implements methods for all API endpoints.
-If the request is successful, the API’s JSON response is parsed and returned, otherwise a `ClashOfClans::NoSucessError` is raised.
+If the request is successful, the API’s JSON response is parsed and returned, otherwise an `ApiFrame::NoSuccessError` is raised.
 `ClashOfClansApi::Client` is a higher-level interface that exposes its `ClashOfClansApi::Api` instance through `ClashOfClansApi::Client#api`.
 Both classes’ initializers take a single argument, the API token.
 
