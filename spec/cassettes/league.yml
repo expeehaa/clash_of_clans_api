@@ -1,0 +1,84 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.clashofclans.com/v1/leagues/aninvalidvalue
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.clashofclans.com
+      Authorization:
+      - Bearer <TOKEN>
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Sat, 16 Sep 2023 22:03:54 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=43200
+      Cache-Control:
+      - public max-age=600
+    body:
+      encoding: ASCII-8BIT
+      string: '{"reason":"badRequest","message":"Invalid format for parameter leagueId,
+        number expected"}'
+  recorded_at: Sat, 16 Sep 2023 22:03:54 GMT
+- request:
+    method: get
+    uri: https://api.clashofclans.com/v1/leagues/29000000
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.clashofclans.com
+      Authorization:
+      - Bearer <TOKEN>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 16 Sep 2023 22:03:54 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=43200
+      Cache-Control:
+      - max-age=600
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":29000000,"name":"Unranked","iconUrls":{"small":"https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png","tiny":"https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png"}}'
+  recorded_at: Sat, 16 Sep 2023 22:03:54 GMT
+recorded_with: VCR 6.2.0

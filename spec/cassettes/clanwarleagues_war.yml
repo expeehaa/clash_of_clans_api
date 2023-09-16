@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.clashofclans.com/v1/clanwarleagues/wars/aninvalidvalue
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.clashofclans.com
+      Authorization:
+      - Bearer <TOKEN>
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Sat, 16 Sep 2023 22:03:47 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=43200
+      Cache-Control:
+      - public max-age=600
+    body:
+      encoding: ASCII-8BIT
+      string: '{"reason":"notFound"}'
+  recorded_at: Sat, 16 Sep 2023 22:03:47 GMT
+recorded_with: VCR 6.2.0
