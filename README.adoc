@@ -69,8 +69,9 @@ client = token.client_from_token
 # Create or get an API key with the given name for the current IPv4 address.
 other_token = token_client.create_or_get_api_key_for_current_ipv4_address('test_key_name', overwrite: true)
 
-# Revoke the previously generated token.
+# Revoke the previously generated tokens.
 token_client.revoke_api_key(token.id)
+other_token.revoke
 
 # Logging out is not required, but possible.
 token_client.logout
