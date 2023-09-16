@@ -32,7 +32,7 @@ module ClashOfClansApi
 		define_endpoint :clan,                        method: :get, endpoint: proc { |clan_tag| "clans/#{ApiFrame::Utils.url_escape(clan_tag)}"                        }
 		define_endpoint :clan_members,                method: :get, endpoint: proc { |clan_tag| "clans/#{ApiFrame::Utils.url_escape(clan_tag)}/members"                }
 		define_endpoint :clan_capitalraidseasons,     method: :get, endpoint: proc { |clan_tag| "clans/#{ApiFrame::Utils.url_escape(clan_tag)}/capitalraidseasons"     }
-		         
+		
 		define_endpoint :player,             method: :get,  endpoint: proc { |player_tag| "players/#{ApiFrame::Utils.url_escape(player_tag)}"             }
 		define_endpoint :player_verifytoken, method: :post, endpoint: proc { |player_tag| "players/#{ApiFrame::Utils.url_escape(player_tag)}/verifytoken" }, body: proc { |token:| %Q({"token":"#{token}"}) }
 		
