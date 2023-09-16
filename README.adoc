@@ -44,6 +44,7 @@ They are derived from the https://developer.clashofclans.com/#/documentation[API
 . Replace slashes (`/`) with underscores (`\_`) and keep only inner ones (`clans_{clanTag}_currentwar_leaguegroup`).
 . In case of path arguments, singularize the path segment referenced by the argument (`clan_{clanTag}_currentwar_leaguegroup`).
 . Remove path argument segments (`clan_currentwar_leaguegroup`).
+. Remove any hyphens.
 
 Path arguments are converted to positional arguments in the order of definition in the original path name.
 Path arguments will automatically be URL-escaped.
