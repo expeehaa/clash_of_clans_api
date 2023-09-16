@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe ClashOfClansApi::Api do
-	let(:api) { ClashOfClansApi::Api.new(ENV['CLASH_OF_CLANS_API_TOKEN']) }
+	let(:api) { ClashOfClansApi::Api.new(ENV.fetch('CLASH_OF_CLANS_API_TOKEN', nil)) }
 	let(:success_response) do
 		double(body: 'flying donkeys').tap do |doub|
 			allow(doub).to receive(:is_a?).with(Net::HTTPSuccess).and_return(true)
