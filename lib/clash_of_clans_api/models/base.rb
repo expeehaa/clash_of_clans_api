@@ -21,7 +21,9 @@ module ClashOfClansApi
 			end
 			
 			class << self
-				attr_reader :required_fields
+				def required_fields
+					@required_fields ||= []
+				end
 				
 				def registered_properties
 					@registered_properties ||= {}
@@ -61,7 +63,7 @@ module ClashOfClansApi
 					end
 					
 					if required
-						@required_fields = (@required_fields || []) + [key]
+						required_fields << key
 					end
 					
 					registered_properties[key] = name
