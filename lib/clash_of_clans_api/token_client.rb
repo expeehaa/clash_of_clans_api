@@ -52,6 +52,20 @@ module ClashOfClansApi
 			true
 		end
 		
+		def create_or_get_api_key_for_current_ipv4_address(name, description=name, overwrite: false)
+			current_ipv4 = ClashOfClansApi::Utils.current_ipv4_address
+			token        = list_api_keys.select{ |i| i.name == name }.first
+			
+			if token && token.cidr_ranges.include?(current_ipv4)
+				token
+			elsif (token && overwrite) || !token
+				token&.revoke
+				create_api_key(name, description, current_ipv4)
+			else
+				false
+			end
+		end
+		
 		class << self
 			def create!(email, password)
 				new(email, password).login!

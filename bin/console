@@ -33,13 +33,7 @@ class Console
 	end
 	
 	def regen_client
-		current_ipv4 = ClashOfClansApi::Utils.current_ipv4_address
-		token        = self.tclient.list_api_keys.select{ |i| i.name == TOKEN_NAME }.first
-		
-		if !token || !token.cidr_ranges.include?(current_ipv4)
-			token&.revoke
-			token = self.tclient.create_api_key(TOKEN_NAME, 'test', current_ipv4)
-		end
+		token = self.tclient.create_or_get_api_key_for_current_ipv4_address(TOKEN_NAME, overwrite: true)
 		
 		self.client = token.client_from_token
 	end
