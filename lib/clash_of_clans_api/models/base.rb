@@ -31,7 +31,7 @@ module ClashOfClansApi
 				
 				def property(name, key, type: nil, required: false, default: nil)
 					define_method(name) do
-						type =
+						deduced_type =
 							case type
 								when Symbol
 									send(type)
@@ -43,16 +43,16 @@ module ClashOfClansApi
 						
 						if !@hash.key?(key)
 							default
-						elsif type.nil?
+						elsif deduced_type.nil?
 							self[key]
 						elsif property_cached?(name)
 							property_from_cache(name)
 						else
 							initializer_proc = proc do |item|
-								if type.ancestors.include?(ClashOfClansApi::Models::Base)
-									type.new(item, self.client)
+								if deduced_type.ancestors.include?(ClashOfClansApi::Models::Base)
+									deduced_type.new(item, self.client)
 								else
-									type.new(item)
+									deduced_type.new(item)
 								end
 							end
 							
