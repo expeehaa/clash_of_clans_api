@@ -25,8 +25,8 @@ module ClashOfClansApi
 					@registered_properties ||= {}
 				end
 				
-				def property(name, key, type: nil, required: false, default: nil)
-					define_method(name) do
+				def property(method_name, key, type: nil, required: false, default: nil)
+					define_method(method_name) do
 						deduced_type =
 							case type
 								when Symbol
@@ -41,8 +41,8 @@ module ClashOfClansApi
 							default
 						elsif deduced_type.nil?
 							self[key]
-						elsif property_cached?(name)
-							property_from_cache(name)
+						elsif property_cached?(method_name)
+							property_from_cache(method_name)
 						else
 							initializer_proc = proc do |item|
 								if deduced_type.ancestors.include?(ClashOfClansApi::Models::Base)
@@ -52,32 +52,32 @@ module ClashOfClansApi
 								end
 							end
 							
-							cache_property(name, self[key].then do |prop|
+							cache_property(method_name, self[key].then do |prop|
 								prop.is_a?(Array) ? prop.map(&initializer_proc) : initializer_proc.call(prop)
 							end)
 						end
 					end
 					
 					registered_properties[key] = {
-						name:     name,
-						required: required,
-						default:  default,
+						method_name: method_name,
+						required:    required,
+						default:     default,
 					}
 				end
 			end
 			
-			def property_cached?(name)
-				@property_cache && @property_cache.key?(name)
+			def property_cached?(method_name)
+				@property_cache && @property_cache.key?(method_name)
 			end
 			
-			def cache_property(name, obj)
+			def cache_property(method_name, obj)
 				@property_cache ||= {}
 				
-				@property_cache[name] = obj
+				@property_cache[method_name] = obj
 			end
 			
-			def property_from_cache(name)
-				@property_cache[name]
+			def property_from_cache(method_name)
+				@property_cache[method_name]
 			end
 			
 			def validate!
