@@ -30,6 +30,8 @@ module ClashOfClansApi
 			property :versus_battle_wins,         'versusBattleWins'
 			property :role,                       'role'
 			property :war_preference,             'warPreference'
+			property :clan_rank,                  'clanRank'
+			property :previous_clan_rank,         'previousClanRank'
 			property :donations,                  'donations'
 			property :donations_received,         'donationsReceived'
 			property :rank,                       'rank'

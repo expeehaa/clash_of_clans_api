@@ -40,7 +40,7 @@ RSpec.describe ClashOfClansApi::Client do
 	end
 	
 	[
-		[:clan,          ['#2YYQPVGQQ'       ], true],
+		[:clan,          ['#2YYQPVGQQ'       ],     ],
 		[:clan_members,  ['#2YYQPVGQQ'       ], true],
 		[:player,        ['#QG8VUCRUQ'       ],     ],
 		[:leagues,       [                   ], true],
