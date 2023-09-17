@@ -36,7 +36,7 @@ RSpec.describe ClashOfClansApi::Api do
 		[:player,                               ['#QG8VUCRUQ'], ['aninvalidvalue']],
 		[:capitalleagues,                       [            ], [                ]],
 		[:leagues,                              [            ], [                ]],
-		# [:league_season,                        [29000022, '2023-08'], ['aninvalidvalue', 'anotherinvalidvalue']], # TODO: Gather cassette data. The API servers seem to take a long time responding on this endpoint.
+		[:league_season,                        [29000022, '2023-08'], ['aninvalidvalue', 'anotherinvalidvalue'], {limit: 10}],
 		[:capitalleague,                        [85000022    ], ['aninvalidvalue']],
 		[:builderbaseleague,                    [44000041    ], ['aninvalidvalue']],
 		[:builderbaseleagues,                   [            ], [                ]],
@@ -56,7 +56,7 @@ RSpec.describe ClashOfClansApi::Api do
 		[:goldpass_seasons_current,             [            ], [                ]],
 		[:labels_players,                       [            ], [                ]],
 		[:labels_clans,                         [            ], [                ]],
-	].each do |method_name, valid_arguments, invalid_arguments|
+	].each do |method_name, valid_arguments, invalid_arguments, query|
 		describe "##{method_name}", vcr_cassette: method_name do
 			it 'accepts query parameters' do
 				allow(api).to receive(:perform_request        ).once.with(any_args, query: {test: 5, asdf: 'i like trains'}, headers: nil, body: nil).and_return(success_response)
@@ -67,7 +67,7 @@ RSpec.describe ClashOfClansApi::Api do
 			
 			if invalid_arguments.any?
 				it 'raises an error with an invalid argument' do
-					expect{api.send(method_name, *invalid_arguments)}.to raise_error do |error|
+					expect{api.send(method_name, *invalid_arguments, query: query)}.to raise_error do |error|
 						expect(error         ).to be_a ApiFrame::NoSuccessError
 						expect(error.response).to be_a(Net::HTTPNotFound).or be_a(Net::HTTPBadRequest)
 					end
@@ -77,7 +77,7 @@ RSpec.describe ClashOfClansApi::Api do
 			it 'returns a Hash with a valid argument' do
 				pending "Replace nil with an array of valid arguments for method #{method_name}!" if valid_arguments.nil?
 				
-				response = api.send(method_name, *valid_arguments)
+				response = api.send(method_name, *valid_arguments, query: query)
 				
 				expect(response     ).    to be_a Hash
 				expect(response.keys).not_to be_empty
