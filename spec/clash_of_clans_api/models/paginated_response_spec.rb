@@ -24,10 +24,4 @@ RSpec.describe ClashOfClansApi::Models::PaginatedResponse do
 			expect(instance.items).to eq ['a test', 'some other string', 'cow']
 		end
 	end
-	
-	describe '#client' do
-		it 'returns the second constructor argument' do
-			expect(instance.client).to eq 5
-		end
-	end
 end

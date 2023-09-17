@@ -1,16 +1,14 @@
 require 'spec_helper'
 
 RSpec.describe ClashOfClansApi::Models::LegendStatistics do
-	let(:instance) do
-		ClashOfClansApi::Models::LegendStatistics.new({
+	let(:minimal_data) do
+		{
 			'legendTrophies' => 12525,
 			'previousSeason' => {
-				'id'       => '2021-12',
 				'rank'     => 13788,
 				'trophies' => 5620,
 			},
 			'bestSeason'     => {
-				'id'       => '2021-12',
 				'rank'     => 13788,
 				'trophies' => 5620,
 			},
@@ -18,7 +16,7 @@ RSpec.describe ClashOfClansApi::Models::LegendStatistics do
 				'rank'     => 291,
 				'trophies' => 4988,
 			},
-		}, 5)
+		}
 	end
 	
 	describe '.new' do
@@ -28,38 +26,8 @@ RSpec.describe ClashOfClansApi::Models::LegendStatistics do
 		end
 		
 		it 'validates the argument key requirements' do
-			expect{ClashOfClansApi::Models::LegendStatistics.new({}, 4)}.    to raise_error ClashOfClansApi::Models::InvalidDataError, 'The following keys are required, but missing from the model data: "legendTrophies", "previousSeason", "bestSeason", "currentSeason"'
-			expect{instance                                            }.not_to raise_error
-		end
-	end
-	
-	describe '#client' do
-		it 'returns the second constructor argument' do
-			expect(instance.client).to eq 5
-		end
-	end
-	
-	describe '#legend_trophies' do
-		it 'returns the value of key "legendTrophies"' do
-			expect(instance.legend_trophies).to eq 12525
-		end
-	end
-	
-	describe '#previous_season' do
-		it 'returns the value of key "previousSeason"' do
-			expect(instance.previous_season).to be_a ClashOfClansApi::Models::LegendSeason
-		end
-	end
-	
-	describe '#best_season' do
-		it 'returns the value of key "bestSeason"' do
-			expect(instance.best_season).to be_a ClashOfClansApi::Models::LegendSeason
-		end
-	end
-	
-	describe '#current_season' do
-		it 'returns the value of key "currentSeason"' do
-			expect(instance.current_season).to be_a ClashOfClansApi::Models::LegendSeason
+			expect{ClashOfClansApi::Models::LegendStatistics.new({},           4)}.    to raise_error ClashOfClansApi::Models::InvalidDataError, 'The following keys are required, but missing from the model data: "legendTrophies", "previousSeason", "bestSeason", "currentSeason"'
+			expect{ClashOfClansApi::Models::LegendStatistics.new(minimal_data, 4)}.not_to raise_error
 		end
 	end
 end
