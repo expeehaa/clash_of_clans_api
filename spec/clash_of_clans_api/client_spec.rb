@@ -40,12 +40,12 @@ RSpec.describe ClashOfClansApi::Client do
 	end
 	
 	[
-		[:clan,          ['#2YYQPVGQQ'       ],     ],
-		[:clan_members,  ['#2YYQPVGQQ'       ], true],
-		[:player,        ['#QG8VUCRUQ'       ],     ],
-		[:leagues,       [                   ], true],
-		# [:league_season, [29000022, '2023-08']      ], # TODO: Gather cassette data. The API servers seem to take a long time responding on this endpoint.
-		[:league,        [29000000           ]      ],
+		[:clan,          ['#2YYQPVGQQ'       ]],
+		[:clan_members,  ['#2YYQPVGQQ'       ]],
+		[:player,        ['#QG8VUCRUQ'       ]],
+		[:leagues,       [                   ]],
+		# [:league_season, [29000022, '2023-08']], # TODO: Gather cassette data. The API servers seem to take a long time responding on this endpoint.
+		[:league,        [29000000           ]],
 	].each do |method_name, arguments, pend|
 		describe "##{method_name}", vcr_cassette: method_name do
 			it 'returns a model instance that implements all properties' do
