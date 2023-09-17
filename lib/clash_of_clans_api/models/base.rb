@@ -21,10 +21,6 @@ module ClashOfClansApi
 			end
 			
 			class << self
-				def required_fields
-					@required_fields ||= []
-				end
-				
 				def registered_properties
 					@registered_properties ||= {}
 				end
@@ -62,11 +58,11 @@ module ClashOfClansApi
 						end
 					end
 					
-					if required
-						required_fields << key
-					end
-					
-					registered_properties[key] = name
+					registered_properties[key] = {
+						name:     name,
+						required: required,
+						default:  default,
+					}
 				end
 			end
 			
@@ -85,14 +81,12 @@ module ClashOfClansApi
 			end
 			
 			def validate!
-				if self.class.required_fields
-					missing = self.class.required_fields.reject do |required_field|
-						@hash.key?(required_field)
-					end
-					
-					if missing.any?
-						raise InvalidDataError, "The following keys are required, but missing from the model data: #{missing.map(&:inspect).join(', ')}"
-					end
+				missing = self.class.registered_properties.reject do |field_name, properties|
+					!properties[:required] || @hash.key?(field_name)
+				end
+				
+				if missing.any?
+					raise InvalidDataError, "The following keys are required, but missing from the model data: #{missing.keys.map(&:inspect).join(', ')}"
 				end
 			end
 		end
