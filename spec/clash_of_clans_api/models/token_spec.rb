@@ -18,7 +18,7 @@ RSpec.describe ClashOfClansApi::Models::Token do
 	end
 	
 	describe '.new' do
-		it 'requires two arguments' do
+		it 'requires 2 arguments' do
 			expect{ClashOfClansApi::Models::Token.new    }.    to raise_error ArgumentError, 'wrong number of arguments (given 0, expected 2)'
 			expect{ClashOfClansApi::Models::Token.new({})}.    to raise_error ArgumentError, 'wrong number of arguments (given 1, expected 2)'
 		end
