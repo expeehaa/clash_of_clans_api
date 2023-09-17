@@ -24,7 +24,8 @@ RSpec.describe ClashOfClansApi::Models::Token do
 		end
 		
 		it 'validates the argument key requirements' do
-			expect{ClashOfClansApi::Models::Token.new({}, nil)}.to raise_error ClashOfClansApi::Models::InvalidDataError, 'The following keys are required, but missing from the model data: "id", "name", "description", "cidrRanges", "key"'
+			expect{ClashOfClansApi::Models::Token.new({}, nil)}.    to raise_error ClashOfClansApi::Models::InvalidDataError, 'The following keys are required, but missing from the model data: "id", "name", "description", "cidrRanges", "key"'
+			expect{instance                                   }.not_to raise_error
 		end
 	end
 	
