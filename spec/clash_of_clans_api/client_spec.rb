@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe ClashOfClansApi::Client do
-	let(:client) { ClashOfClansApi::Client.new('some_token') }
+	let(:client) { ClashOfClansApi::Client.new(ENV.fetch('CLASH_OF_CLANS_API_TOKEN', nil)) }
 	
 	describe '.new' do
 		it 'requires an argument' do
@@ -11,9 +11,11 @@ RSpec.describe ClashOfClansApi::Client do
 	end
 	
 	describe '#api' do
+		let(:test_client) { ClashOfClansApi::Client.new('some_token') }
+		
 		it 'is a ClashOfClansApi::Api object' do
-			expect(client.api          ).to be_a ClashOfClansApi::Api
-			expect(client.api.api_token).to eq 'some_token'
+			expect(test_client.api          ).to be_a ClashOfClansApi::Api
+			expect(test_client.api.api_token).to eq 'some_token'
 		end
 	end
 	
