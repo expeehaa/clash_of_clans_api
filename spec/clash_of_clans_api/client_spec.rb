@@ -42,7 +42,7 @@ RSpec.describe ClashOfClansApi::Client do
 	[
 		[:clan,          ['#2YYQPVGQQ'       ], true],
 		[:clan_members,  ['#2YYQPVGQQ'       ], true],
-		[:player,        ['#QG8VUCRUQ'       ], true],
+		[:player,        ['#QG8VUCRUQ'       ],     ],
 		[:leagues,       [                   ], true],
 		# [:league_season, [29000022, '2023-08']      ], # TODO: Gather cassette data. The API servers seem to take a long time responding on this endpoint.
 		[:league,        [29000000           ]      ],

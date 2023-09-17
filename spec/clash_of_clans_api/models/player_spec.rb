@@ -120,7 +120,7 @@ RSpec.describe ClashOfClansApi::Models::Player do
 		end
 		
 		it 'validates the argument key requirements' do
-			expect{ClashOfClansApi::Models::Player.new({}, 4)}.    to raise_error ClashOfClansApi::Models::InvalidDataError, 'The following keys are required, but missing from the model data: "tag", "name", "trophies"'
+			expect{ClashOfClansApi::Models::Player.new({}, 4)}.    to raise_error ClashOfClansApi::Models::InvalidDataError, 'The following keys are required, but missing from the model data: "tag", "name"'
 			expect{instance                                  }.not_to raise_error
 		end
 	end
@@ -261,12 +261,6 @@ RSpec.describe ClashOfClansApi::Models::Player do
 		it 'returns the value of key "achievements"' do
 			expect(instance.achievements     ).to all be_a ClashOfClansApi::Models::Achievement
 			expect(instance.achievements.size).to eq 2
-		end
-	end
-	
-	describe '#versus_battle_win_count' do
-		it 'returns the value of key "versusBattleWinCount"' do
-			expect(instance.versus_battle_win_count).to eq 3
 		end
 	end
 	
