@@ -52,7 +52,7 @@ module ClashOfClansApi
 			Models::Player.new(api.player(tag), self)
 		end
 		
-		def league_season(league_id=29000022, season_id, limit: nil, before: nil, after: nil) # rubocop:disable Style/OptionalArguments
+		def league_season(league_id=29000022, season_id, limit: 10, before: nil, after: nil) # rubocop:disable Style/OptionalArguments
 			Models::PaginatedResponse.new(Models::Player, api.league_season(league_id, season_id, query: {limit: limit, before: before, after: after}.compact), self)
 		end
 	end
