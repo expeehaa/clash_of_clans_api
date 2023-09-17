@@ -17,6 +17,47 @@ RSpec.describe ClashOfClansApi::Client do
 		end
 	end
 	
+	def expect_model_properties_match_object_keys(model_instance)
+		expect(model_instance                                 ).to be_a ClashOfClansApi::Models::Base
+		expect(model_instance.class.registered_properties.keys).to include(*model_instance.to_h.keys)
+		
+		model_instance.class.registered_properties.each do |field_name, properties|
+			case model_instance[field_name]
+				when Hash
+					expect_model_properties_match_object_keys(model_instance.send(properties[:method_name]))
+				when Array
+					model_instance.send(properties[:method_name]).each do |element|
+						expect_model_properties_match_object_keys(element)
+					end
+				else
+					if !model_instance[field_name].nil? || properties[:default].nil?
+						expect(model_instance.send(properties[:method_name])).to eq model_instance[field_name]
+					else
+						expect(model_instance.send(properties[:method_name])).to eq properties[:default]
+					end
+			end
+		end
+	end
+	
+	[
+		[:clan,          ['#2YYQPVGQQ'       ], true],
+		[:clan_members,  ['#2YYQPVGQQ'       ], true],
+		[:player,        ['#QG8VUCRUQ'       ], true],
+		[:leagues,       [                   ], true],
+		# [:league_season, [29000022, '2023-08']      ], # TODO: Gather cassette data. The API servers seem to take a long time responding on this endpoint.
+		[:league,        [29000000           ]      ],
+	].each do |method_name, arguments, pend|
+		describe "##{method_name}", vcr_cassette: method_name do
+			it 'returns a model instance that implements all properties' do
+				model_instance = client.send(method_name, *arguments)
+				
+				pending if pend
+				
+				expect_model_properties_match_object_keys(model_instance)
+			end
+		end
+	end
+	
 	describe '#player_verifytoken' do
 		it 'raises an error if the sent and received player tags do not match' do
 			expect(client.api).to receive(:player_verifytoken).with('test_tag', token: 'asdf').once.and_return({'tag' => 'test_ta2', 'token' => 'asdf', 'status' => 'ok'})
