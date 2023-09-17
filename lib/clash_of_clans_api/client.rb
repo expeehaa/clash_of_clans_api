@@ -16,6 +16,18 @@ module ClashOfClansApi
 			api.perform_request(:get, 'test').code == '404'
 		end
 		
+		def clan(tag)
+			Models::Clan.new(api.clan(tag), self)
+		end
+		
+		def clan_members(tag)
+			Models::PaginatedResponse.new(Models::Player, api.clan_members(tag), self)
+		end
+		
+		def player(tag)
+			Models::Player.new(api.player(tag), self)
+		end
+		
 		def player_verifytoken(player_tag, token)
 			response = api.player_verifytoken(player_tag, token: token)
 			
@@ -32,28 +44,16 @@ module ClashOfClansApi
 			end
 		end
 		
-		def clan(tag)
-			Models::Clan.new(api.clan(tag), self)
-		end
-		
-		def clan_members(tag)
-			Models::PaginatedResponse.new(Models::Player, api.clan_members(tag), self)
-		end
-		
 		def leagues
 			Models::PaginatedResponse.new(Models::League, api.leagues, self)
 		end
 		
-		def league(id)
-			Models::League.new(api.league(id), self)
-		end
-		
-		def player(tag)
-			Models::Player.new(api.player(tag), self)
-		end
-		
 		def league_season(league_id=29000022, season_id, limit: 10, before: nil, after: nil) # rubocop:disable Style/OptionalArguments
 			Models::PaginatedResponse.new(Models::Player, api.league_season(league_id, season_id, query: {limit: limit, before: before, after: after}.compact), self)
+		end
+		
+		def league(id)
+			Models::League.new(api.league(id), self)
 		end
 	end
 end
