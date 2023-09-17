@@ -36,6 +36,7 @@ RSpec.describe ClashOfClansApi::Api do
 		[:player,                               ['#QG8VUCRUQ'], ['aninvalidvalue']],
 		[:capitalleagues,                       [            ], [                ]],
 		[:leagues,                              [            ], [                ]],
+		# [:league_season,                        [29000022, '2023-08'], ['aninvalidvalue', 'anotherinvalidvalue']], # TODO: Gather cassette data. The API servers seem to take a long time responding on this endpoint.
 		[:capitalleague,                        [85000022    ], ['aninvalidvalue']],
 		[:builderbaseleague,                    [44000041    ], ['aninvalidvalue']],
 		[:builderbaseleagues,                   [            ], [                ]],
