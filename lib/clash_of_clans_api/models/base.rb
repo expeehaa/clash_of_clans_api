@@ -62,6 +62,7 @@ module ClashOfClansApi
 						method_name: method_name,
 						required:    required,
 						default:     default,
+						type:        type,
 					}
 				end
 			end
