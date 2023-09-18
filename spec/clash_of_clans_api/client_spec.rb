@@ -42,12 +42,13 @@ RSpec.describe ClashOfClansApi::Client do
 	end
 	
 	[
-		[:clan,          ['#2YYQPVGQQ'       ]],
-		[:clan_members,  ['#2YYQPVGQQ'       ]],
-		[:player,        ['#QG8VUCRUQ'       ]],
-		[:leagues,       [                   ]],
-		[:league_season, [29000022, '2023-08']],
-		[:league,        [29000000           ]],
+		[:clan,           ['#2YYQPVGQQ'       ]],
+		[:clan_members,   ['#2YYQPVGQQ'       ]],
+		[:player,         ['#QG8VUCRUQ'       ]],
+		[:capitalleagues, [                   ]],
+		[:leagues,        [                   ]],
+		[:league_season,  [29000022, '2023-08']],
+		[:league,         [29000000           ]],
 	].each do |method_name, arguments, pend|
 		describe "##{method_name}", vcr_cassette: method_name do
 			it 'returns a model instance that implements all properties' do

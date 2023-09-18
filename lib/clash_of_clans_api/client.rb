@@ -44,6 +44,10 @@ module ClashOfClansApi
 			end
 		end
 		
+		def capitalleagues
+			Models::PaginatedResponse.new(Models::CapitalLeague, api.capitalleagues, self)
+		end
+		
 		def leagues
 			Models::PaginatedResponse.new(Models::League, api.leagues, self)
 		end
