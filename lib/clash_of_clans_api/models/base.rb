@@ -1,4 +1,5 @@
 require_relative 'invalid_data_error'
+require 'date'
 
 module ClashOfClansApi
 	module Models
@@ -47,6 +48,8 @@ module ClashOfClansApi
 							initializer_proc = proc do |item|
 								if deduced_type.ancestors.include?(ClashOfClansApi::Models::Base)
 									deduced_type.new(item, self.client)
+								elsif deduced_type == DateTime
+									DateTime.parse(item)
 								else
 									deduced_type.new(item)
 								end

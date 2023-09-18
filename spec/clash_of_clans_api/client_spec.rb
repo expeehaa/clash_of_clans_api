@@ -32,8 +32,12 @@ RSpec.describe ClashOfClansApi::Client do
 						expect_model_properties_match_object_keys(element)
 					end
 				else
-					if !model_instance[field_name].nil? || properties[:default].nil?
-						expect(model_instance.send(properties[:method_name])).to eq model_instance[field_name]
+					if !model_instance[field_name].nil?
+						if properties[:type] == DateTime
+							expect(model_instance.send(properties[:method_name])).to eq DateTime.parse(model_instance[field_name])
+						else
+							expect(model_instance.send(properties[:method_name])).to eq model_instance[field_name]
+						end
 					else
 						expect(model_instance.send(properties[:method_name])).to eq properties[:default]
 					end
@@ -42,6 +46,8 @@ RSpec.describe ClashOfClansApi::Client do
 	end
 	
 	[
+		[:clan_warlog,     ['#2YYQPVGQQ'       ]],
+		[:clan_currentwar, ['#2YYQPVGQQ'       ]],
 		[:clan,           ['#2YYQPVGQQ'       ]],
 		[:clan_members,   ['#2YYQPVGQQ'       ]],
 		[:player,         ['#QG8VUCRUQ'       ]],

@@ -3,6 +3,7 @@ require_relative 'models/paginated_response'
 require_relative 'models/clan'
 require_relative 'models/player'
 require_relative 'models/league'
+require_relative 'models/war'
 
 module ClashOfClansApi
 	class Client
@@ -14,6 +15,14 @@ module ClashOfClansApi
 		
 		def authorized?
 			api.perform_request(:get, 'test').code == '404'
+		end
+		
+		def clan_currentwar(clan_tag)
+			Models::War.new(api.clan_currentwar(clan_tag), self)
+		end
+		
+		def clan_warlog(clan_tag)
+			Models::PaginatedResponse.new(Models::War, api.clan_warlog(clan_tag), self)
 		end
 		
 		def clan(tag)
