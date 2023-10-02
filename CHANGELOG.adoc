@@ -1,0 +1,13 @@
+= Changelog
+
+== 0.3.0
+
+* Increase required Ruby version to 2.7.0.
+* Factor out generic API access code into the new `api_frame` gem.
+* Add `ClashOfClansApi::TokenClient#create_or_get_api_key_for_current_ipv4_address`.
+* Add new API endpoints for clan capitals and the new builder base.
+* Record test data with the `vcr` gem.
+* Update existing models for new properties.
+* Add models and client methods for regular clan wars.
+* Rewrite tests to make supporting new endpoints easier and reduce code duplication.
+* Apply many small code quality improvements.
