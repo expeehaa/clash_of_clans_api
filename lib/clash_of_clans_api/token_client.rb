@@ -21,7 +21,7 @@ module ClashOfClansApi
 						'Cookie' => "session=#{cookies['session'][0]}",
 					}
 				else
-					raise NoSuccessError, response
+					raise ApiFrame::NoSuccessError, response
 				end
 			end
 		end
