@@ -8,6 +8,7 @@
 ** `ClashOfClansApi::Models::Player#versus_battle_wins`
 ** `ClashOfClansApi::Models::Clan#clan_versus_points`
 ** `ClashOfClansApi::Models::Clan#required_versus_trophies`
+* Handle hero equipment in player models.
 
 == 0.3.0
 

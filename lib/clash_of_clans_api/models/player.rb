@@ -2,6 +2,7 @@ require_relative 'base'
 require_relative 'achievement'
 require_relative 'builder_base_league'
 require_relative 'hero'
+require_relative 'hero_equipment'
 require_relative 'label'
 require_relative 'league'
 require_relative 'legend_statistics'
@@ -43,6 +44,7 @@ module ClashOfClansApi
 			property :troops,                     'troops',            type: Troop
 			property :heroes,                     'heroes',            type: Hero
 			property :spells,                     'spells',            type: Spell
+			property :hero_equipment,             'heroEquipment',     type: HeroEquipment
 		end
 	end
 end
