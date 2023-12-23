@@ -9,6 +9,7 @@
 ** `ClashOfClansApi::Models::Clan#clan_versus_points`
 ** `ClashOfClansApi::Models::Clan#required_versus_trophies`
 * Handle hero equipment in player models.
+* Increase minimal required Ruby version to 3.0.0.
 
 == 0.3.0
 
