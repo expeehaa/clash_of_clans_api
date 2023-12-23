@@ -20,7 +20,6 @@ module ClashOfClansApi
 			property :clan_level,                     'clanLevel'
 			property :clan_points,                    'clanPoints'
 			property :clan_builder_base_points,       'clanBuilderBasePoints'
-			property :clan_versus_points,             'clanVersusPoints'
 			property :clan_capital_points,            'clanCapitalPoints'
 			property :capital_league,                 'capitalLeague',               type: CapitalLeague
 			property :required_trophies,              'requiredTrophies'
@@ -35,7 +34,6 @@ module ClashOfClansApi
 			property :member_list,                    'memberList',                  type: 'ClashOfClansApi::Models::Player'
 			property :labels,                         'labels',                      type: Label
 			property :required_builder_base_trophies, 'requiredBuilderBaseTrophies'
-			property :required_versus_trophies,       'requiredVersusTrophies'
 			property :required_townhall_level,        'requiredTownhallLevel'
 			property :clan_capital,                   'clanCapital',                 type: ClanCapital
 			property :chat_language,                  'chatLanguage',                type: ChatLanguage

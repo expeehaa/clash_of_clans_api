@@ -1,5 +1,14 @@
 = Changelog
 
+== 0.4.0
+
+* Delete removed properties.
+** `ClashOfClansApi::Models::Player#versus_trophies`
+** `ClashOfClansApi::Models::Player#best_versus_trophies`
+** `ClashOfClansApi::Models::Player#versus_battle_wins`
+** `ClashOfClansApi::Models::Clan#clan_versus_points`
+** `ClashOfClansApi::Models::Clan#required_versus_trophies`
+
 == 0.3.0
 
 * Increase required Ruby version to 2.7.0.
