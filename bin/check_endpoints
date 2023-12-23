@@ -1,0 +1,227 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'clash_of_clans_api'
+require 'psych'
+require 'prism'
+
+token_client = [ENV.fetch('CLASH_OF_CLANS_TOKEN_API_EMAIL', nil), ENV.fetch('CLASH_OF_CLANS_TOKEN_API_PASSWORD', nil)].then do |email, password|
+	if email && password
+		ClashOfClansApi::TokenClient.new(email, password)
+	end
+end
+
+begin
+	token_client.login!
+rescue StandardError => e
+	warn <<~WARNING
+		Please specify valid login data with the following environment variables.
+		CLASH_OF_CLANS_TOKEN_API_EMAIL
+		CLASH_OF_CLANS_TOKEN_API_PASSWORD
+		
+		#{e}
+	WARNING
+	exit 1
+end
+
+token  = token_client.create_or_get_api_key_for_current_ipv4_address('check_endpoints', overwrite: true)
+client = token.client_from_token
+
+openapi_specification = client.api.perform_request(:get, '').body
+parsed_spec           = Psych.load(openapi_specification)
+
+class Endpoint
+	attr_accessor :path
+	attr_accessor :spec
+	attr_accessor :http_method
+	attr_accessor :node
+	
+	PATH_PARAMETER_REGEX = /\A\{(?<name>.*)\}\z/
+	
+	def initialize(path, spec)
+		self.path = path
+		self.spec = spec
+	end
+	
+	def split_path
+		path.delete_prefix('/').split('/')
+	end
+
+	def sanitize_path_element(path_element)
+		path_element.gsub('-', '')
+	end
+	
+	def method_name
+		split_path.then do |splitted|
+			parameter_indices = splitted.each.with_index.find_all do |path_element, _|
+				PATH_PARAMETER_REGEX.match?(path_element)
+			end.map do |_, i|
+				i
+			end
+			
+			if !parameter_indices.include?(0)
+				splitted.map.with_index do |path_element, i|
+					if parameter_indices.include?(i + 1)
+						if path_element[-1] == 's'
+							sanitize_path_element(path_element.delete_suffix('s'))
+						else
+							raise NotImplementedError, "Path segment #{splitted[i - 1].inspect} cannot be singularized. Path was #{self.path.inspect}."
+						end
+					elsif parameter_indices.include?(i)
+						nil
+					else
+						sanitize_path_element(path_element)
+					end
+				end.compact.join('_')
+			else
+				raise NotImplementedError, "Handling of parameters in the first path segment is not implemented. Path was #{self.path.inspect}."
+			end
+		end
+	end
+	
+	def path_parameters
+		split_path.map do |path_segment|
+			if (match = path_segment.match(PATH_PARAMETER_REGEX))
+				match['name'].gsub(/[A-Z]/) do |m|
+					"_#{m.downcase}"
+				end
+			else
+				nil
+			end
+		end.compact
+	end
+end
+
+endpoints = parsed_spec['paths'].map do |path, specs|
+	specs.map do |http_method, spec|
+		Endpoint.new(path, spec).then do |endpoint|
+			[[endpoint.method_name, http_method.to_s.upcase], endpoint]
+		end
+	end
+end.flatten(1).to_h
+
+api_ast = Prism.parse(File.read(File.join(__dir__, '../lib/clash_of_clans_api/api.rb')))
+
+endpoint_nodes = api_ast.value.statements.body.find do |node|
+	node.instance_of?(Prism::ModuleNode)
+end.body.body.find do |node|
+	node.instance_of?(Prism::ClassNode)
+end.body.body.find_all do |node|
+	node.instance_of?(Prism::CallNode) && node.name == :define_endpoint
+end
+
+unmatched_nodes = []
+
+endpoint_nodes.each do |node|
+	method_name = node.arguments.arguments.find do |argument_node|
+		argument_node.instance_of?(Prism::SymbolNode)
+	end.unescaped
+	http_method = node.arguments.arguments.find do |argument_node|
+		argument_node.instance_of?(Prism::KeywordHashNode)
+	end.elements.find do |argument_node|
+		argument_node.instance_of?(Prism::AssocNode) && argument_node.key.unescaped == 'method'
+	end.value.unescaped.upcase
+	
+	if endpoints.key?([method_name, http_method])
+		endpoints[[method_name, http_method]].node = node
+	else
+		unmatched_nodes << node
+	end
+end
+
+# Check if endpoints in gem are present in the API specification.
+
+if unmatched_nodes.empty?
+	puts '☑ All endpoints in the gem correspond to an endpoint in the API specification.'
+else
+	unmatched_nodes_text = unmatched_nodes.map do |node|
+		name = node.arguments.arguments.find do |argument_node|
+			argument_node.instance_of?(Prism::SymbolNode)
+		end.unescaped
+		lines = node.location.start_line == node.location.end_line ? node.location.start_line.to_s : "#{node.location.start_line}-#{node.location.end_line}"
+		
+		"  #{name}##{lines}"
+	end.join("\n")
+	
+	puts <<~TEXT
+		☒ The following endpoints in the gem do not have a corresponding endpoint in the API specification.
+		#{unmatched_nodes_text}
+	TEXT
+end
+
+# Check if all endpoints in API specification have a corresponding endpoint in the gem.
+
+endpoints.select do |_, endpoint|
+	endpoint.node.nil?
+end.tap do |unmatched_specs|
+	if unmatched_specs.empty?
+		puts '☑ All endpoints in the API specification have a corresponding endpoint the gem.'
+	else
+		unmatched_specs_text = unmatched_specs.map do |(name, http_method), endpoint|
+			<<~TEXT.chomp
+				#{http_method} #{endpoint.path}"
+				  define_endpoint :#{name}, method: :#{http_method.downcase}
+			TEXT
+		end.join("\n").gsub(/(\A|\n)/, '\1  ')
+		
+		puts <<~TEXT
+			☒ The following endpoints in the API specification do not have a corresponding endpoint in the gem.
+			#{unmatched_specs_text}
+		TEXT
+	end
+end
+
+# Check if corresponding endpoints are implemented correctly.
+
+endpoints.reject do |_, endpoint|
+	endpoint.node.nil?
+end.tap do |matched_specs|
+	bad_specs = matched_specs.map do |(name, _), endpoint|
+		endpoint_argument_node = endpoint.node.arguments.arguments.find do |argument_node|
+			argument_node.instance_of?(Prism::KeywordHashNode)
+		end.elements.find do |argument_node|
+			argument_node.instance_of?(Prism::AssocNode) && argument_node.key.unescaped == 'endpoint'
+		end
+		path_parameters = endpoint.path_parameters
+		
+		errors = []
+		
+		case endpoint_argument_node.value
+			when Prism::StringNode
+				if !path_parameters.empty?
+					errors << "endpoint: Expected proc with #{path_parameters.size} parameter(s), but found string."
+				end
+			when Prism::CallNode
+				if (defined_parameters = endpoint_argument_node.value.block.locals.map(&:to_s)).size != path_parameters.size
+					errors << "endpoint: Expected proc with #{path_parameters.size} parameter(s), but found #{defined_parameters.size} parameter(s)."
+				end
+		end
+		
+		if errors.any?
+			lines = endpoint.node.location.then do |location|
+				location.start_line == location.end_line ? location.start_line.to_s : "#{location.start_line}-#{location.end_line}"
+			end
+			
+			errors.map! do |error|
+				"  #{error}"
+			end
+			
+			<<~TEXT.chomp.gsub(/(\A|\n)/, '\1  ')
+				#{name}##{lines}
+				#{errors.join("\n")}
+			TEXT
+		else
+			nil
+		end
+	end.compact
+	
+	if bad_specs.empty?
+		puts '☑ All endpoints in the gem that correspond to an endpoint in the API specification are implemented correctly.'
+	else
+		
+		puts <<~TEXT
+			☒ The following endpoints are implemented incorrectly.
+			#{bad_specs.join("\n")}
+		TEXT
+	end
+end
