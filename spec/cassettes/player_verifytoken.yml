@@ -25,7 +25,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Sat, 16 Sep 2023 22:04:10 GMT
+      - Sat, 23 Dec 2023 22:07:01 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -41,7 +41,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"reason":"notFound","message":"Not found with tag aninvalidvalue"}'
-  recorded_at: Sat, 16 Sep 2023 22:04:10 GMT
+  recorded_at: Sat, 23 Dec 2023 22:07:01 GMT
 - request:
     method: post
     uri: https://api.clashofclans.com/v1/players/%23QG8VUCRUQ/verifytoken
@@ -67,7 +67,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 16 Sep 2023 22:04:10 GMT
+      - Sat, 23 Dec 2023 22:07:02 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -83,5 +83,5 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"tag":"#QG8VUCRUQ","token":"faketoken","status":"invalid"}'
-  recorded_at: Sat, 16 Sep 2023 22:04:10 GMT
+  recorded_at: Sat, 23 Dec 2023 22:07:02 GMT
 recorded_with: VCR 6.2.0

@@ -23,7 +23,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Sat, 16 Sep 2023 22:03:50 GMT
+      - Sat, 23 Dec 2023 22:05:48 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -39,7 +39,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"reason":"notFound","message":"Not found with tag aninvalidvalue"}'
-  recorded_at: Sat, 16 Sep 2023 22:03:50 GMT
+  recorded_at: Sat, 23 Dec 2023 22:05:49 GMT
 - request:
     method: get
     uri: https://api.clashofclans.com/v1/clans/%232YYQPVGQQ/members
@@ -63,7 +63,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 16 Sep 2023 22:03:50 GMT
+      - Sat, 23 Dec 2023 22:07:03 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -75,12 +75,12 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=43200
       Cache-Control:
-      - max-age=25
+      - max-age=111
     body:
       encoding: ASCII-8BIT
-      string: '{"items":[{"tag":"#GYQL8V2C","name":"Cube","role":"admin","expLevel":141,"league":{"id":29000000,"name":"Unranked","iconUrls":{"small":"https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png","tiny":"https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png"}},"trophies":2192,"builderBaseTrophies":2351,"versusTrophies":2351,"clanRank":1,"previousClanRank":1,"donations":0,"donationsReceived":0,"builderBaseLeague":{"id":44000021,"name":"Brass
-        League II"}},{"tag":"#G8L0YRCJY","name":"expeehaa mini 2","role":"leader","expLevel":55,"league":{"id":29000003,"name":"Bronze
-        League I","iconUrls":{"small":"https://api-assets.clashofclans.com/leagues/72/SZIXZHZxfHTmgseKCH6T5hvMQ3JQM-Js2QfpC9A3ya0.png","tiny":"https://api-assets.clashofclans.com/leagues/36/SZIXZHZxfHTmgseKCH6T5hvMQ3JQM-Js2QfpC9A3ya0.png","medium":"https://api-assets.clashofclans.com/leagues/288/SZIXZHZxfHTmgseKCH6T5hvMQ3JQM-Js2QfpC9A3ya0.png"}},"trophies":730,"builderBaseTrophies":50,"versusTrophies":50,"clanRank":2,"previousClanRank":2,"donations":0,"donationsReceived":0,"playerHouse":{"elements":[{"type":"ground","id":82000000},{"type":"walls","id":82000048},{"type":"roof","id":82000009},{"type":"decoration","id":82000058}]},"builderBaseLeague":{"id":44000000,"name":"Wood
+      string: '{"items":[{"tag":"#GYQL8V2C","name":"Cube","role":"admin","townHallLevel":12,"expLevel":141,"league":{"id":29000000,"name":"Unranked","iconUrls":{"small":"https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png","tiny":"https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png"}},"trophies":2187,"builderBaseTrophies":2351,"clanRank":1,"previousClanRank":1,"donations":0,"donationsReceived":0,"builderBaseLeague":{"id":44000021,"name":"Brass
+        League II"}},{"tag":"#G8L0YRCJY","name":"expeehaa mini 2","role":"leader","townHallLevel":9,"expLevel":65,"league":{"id":29000005,"name":"Silver
+        League II","iconUrls":{"small":"https://api-assets.clashofclans.com/leagues/72/8OhXcwDJkenBH2kPH73eXftFOpHHRF-b32n0yrTqC44.png","tiny":"https://api-assets.clashofclans.com/leagues/36/8OhXcwDJkenBH2kPH73eXftFOpHHRF-b32n0yrTqC44.png","medium":"https://api-assets.clashofclans.com/leagues/288/8OhXcwDJkenBH2kPH73eXftFOpHHRF-b32n0yrTqC44.png"}},"trophies":1035,"builderBaseTrophies":50,"clanRank":2,"previousClanRank":2,"donations":0,"donationsReceived":0,"playerHouse":{"elements":[{"type":"ground","id":82000000},{"type":"walls","id":82000048},{"type":"roof","id":82000009},{"type":"decoration","id":82000058}]},"builderBaseLeague":{"id":44000000,"name":"Wood
         League V"}}],"paging":{"cursors":{}}}'
-  recorded_at: Sat, 16 Sep 2023 22:03:50 GMT
+  recorded_at: Sat, 23 Dec 2023 22:07:04 GMT
 recorded_with: VCR 6.2.0
