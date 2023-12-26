@@ -10,7 +10,7 @@ VCR.configure do |config|
 	config.hook_into :webmock
 	config.cassette_library_dir     = File.expand_path('cassettes', __dir__)
 	config.default_cassette_options = {
-		record: ENV.fetch('VCR_RECORD', 'false') == 'true' ? :all : :none
+		record: ENV.fetch('VCR_RECORD', 'false') == 'true' ? :all : :none,
 	}
 	config.filter_sensitive_data('<TOKEN>') { ENV.fetch('CLASH_OF_CLANS_API_TOKEN', nil) }
 end
