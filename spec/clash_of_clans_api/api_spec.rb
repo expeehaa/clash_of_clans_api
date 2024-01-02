@@ -60,7 +60,7 @@ RSpec.describe ClashOfClansApi::Api do
 				allow(api).to receive(:perform_request        ).once.with(any_args, query: {test: 5, asdf: 'i like trains'}, headers: nil, body: nil).and_return(success_response)
 				allow(api).to receive(:default_response_parser).and_return(donkey_transformer)
 				
-				expect(api.send(method_name, ['some_test_string']*invalid_arguments.size, query: {test: 5, asdf: 'i like trains'})).to eq 'flying cows'
+				expect(api.send(method_name, ['some_test_string'] * invalid_arguments.size, query: {test: 5, asdf: 'i like trains'})).to eq 'flying cows'
 			end
 			
 			if invalid_arguments.any?
