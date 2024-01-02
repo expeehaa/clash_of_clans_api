@@ -4,6 +4,7 @@ require 'irb'
 require 'clash_of_clans_api'
 
 require 'vcr'
+require 'webmock/rspec'
 
 VCR.configure do |config|
 	config.hook_into :webmock
