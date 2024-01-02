@@ -1,6 +1,7 @@
 require_relative 'api'
 require_relative 'models/paginated_response'
 require_relative 'models/clan'
+require_relative 'models/clan_war_league_group'
 require_relative 'models/player'
 require_relative 'models/league'
 require_relative 'models/war'
@@ -15,6 +16,10 @@ module ClashOfClansApi
 		
 		def authorized?
 			api.perform_request(:get, 'test').code == '404'
+		end
+		
+		def clan_currentwar_leaguegroup(clan_tag)
+			Models::ClanWarLeagueGroup.new(api.clan_currentwar_leaguegroup(clan_tag), self)
 		end
 		
 		def clanwarleagues_war(war_tag)

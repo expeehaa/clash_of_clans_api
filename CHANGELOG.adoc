@@ -4,6 +4,7 @@
 
 * Implement more client methods.
 ** `ClashOfClansApi::Client#clanwarleagues_war`
+** `ClashOfClansApi::Client#clan_currentwar_leaguegroup`
 
 == 0.4.0
 

@@ -46,7 +46,8 @@ RSpec.describe ClashOfClansApi::Client do
 	end
 	
 	[
-		#[:clanwarleagues_war, ['']], # TODO: Find a way to test this in a future-proof way.
+		# [:clan_currentwar_leaguegroup, ['#2YYQPVGQQ']], # TODO: Find a way to test this in a future-proof way.
+		# [:clanwarleagues_war,          [''          ]], # TODO: Find a way to test this in a future-proof way.
 		[:clan_warlog,     ['#2YYQPVGQQ'       ]],
 		[:clan_currentwar, ['#2YYQPVGQQ'       ]],
 		[:clan,            ['#2YYQPVGQQ'       ]],
