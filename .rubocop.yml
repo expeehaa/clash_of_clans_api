@@ -117,6 +117,11 @@ Layout/TrailingWhitespace:
 
 # Lint
 
+Lint/Debugger:
+  Enabled: true
+  Exclude:
+    - 'bin/console'
+
 Lint/UnusedBlockArgument:
   Exclude:
     - 'spec/**/*'
