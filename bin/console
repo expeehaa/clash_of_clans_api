@@ -4,7 +4,7 @@
 require 'bundler/setup'
 require 'clash_of_clans_api'
 
-require 'pry'
+require 'irb'
 
 # :nodoc:
 class Console
@@ -37,6 +37,10 @@ class Console
 		
 		self.client = token.client_from_token
 	end
+
+	def irb
+		binding.irb
+	end
 end
 
-Pry.start(Console.new)
+Console.new.irb

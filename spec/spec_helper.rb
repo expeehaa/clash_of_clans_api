@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-require 'pry'
-require 'pry-byebug'
+require 'irb'
 require 'clash_of_clans_api'
 
 require 'vcr'
