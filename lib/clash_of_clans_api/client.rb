@@ -17,6 +17,10 @@ module ClashOfClansApi
 			api.perform_request(:get, 'test').code == '404'
 		end
 		
+		def clanwarleagues_war(war_tag)
+			Models::War.new(api.clanwarleagues_war(war_tag), self)
+		end
+		
 		def clan_currentwar(clan_tag)
 			Models::War.new(api.clan_currentwar(clan_tag), self)
 		end
