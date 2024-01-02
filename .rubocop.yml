@@ -122,14 +122,6 @@ Lint/Debugger:
   Exclude:
     - 'bin/console'
 
-Lint/UnusedBlockArgument:
-  Exclude:
-    - 'spec/**/*'
-
-Lint/UselessAssignment:
-  Exclude:
-    - 'bin/console'
-
 # Naming
 
 # TODO: Decide on a naming scheme or remove this TODO.
