@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 23 Dec 2023 22:06:53 GMT
+      - Wed, 06 Mar 2024 11:12:11 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -35,7 +35,7 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=43200
       Cache-Control:
-      - max-age=600
+      - max-age=527
     body:
       encoding: ASCII-8BIT
       string: '{"items":[{"id":48000000,"name":"Unranked"},{"id":48000001,"name":"Bronze
@@ -48,5 +48,5 @@ http_interactions:
         League III"},{"id":48000014,"name":"Master League II"},{"id":48000015,"name":"Master
         League I"},{"id":48000016,"name":"Champion League III"},{"id":48000017,"name":"Champion
         League II"},{"id":48000018,"name":"Champion League I"}],"paging":{"cursors":{}}}'
-  recorded_at: Sat, 23 Dec 2023 22:06:53 GMT
+  recorded_at: Wed, 06 Mar 2024 11:12:11 GMT
 recorded_with: VCR 6.2.0

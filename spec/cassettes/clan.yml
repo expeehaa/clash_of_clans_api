@@ -23,7 +23,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Sat, 23 Dec 2023 22:05:45 GMT
+      - Wed, 06 Mar 2024 11:11:29 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -39,7 +39,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"reason":"notFound","message":"Not found with tag aninvalidvalue"}'
-  recorded_at: Sat, 23 Dec 2023 22:05:45 GMT
+  recorded_at: Wed, 06 Mar 2024 11:11:29 GMT
 - request:
     method: get
     uri: https://api.clashofclans.com/v1/clans/%232YYQPVGQQ
@@ -63,7 +63,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 23 Dec 2023 22:07:03 GMT
+      - Wed, 06 Mar 2024 11:12:30 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -75,14 +75,15 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=43200
       Cache-Control:
-      - max-age=44
+      - max-age=60
     body:
       encoding: ASCII-8BIT
       string: '{"tag":"#2YYQPVGQQ","name":"ClashOfClansApi","type":"inviteOnly","description":"API
-        test clan","location":{"id":32000006,"name":"International","isCountry":false},"isFamilyFriendly":false,"badgeUrls":{"small":"https://api-assets.clashofclans.com/badges/70/T_D6WK-jnwhaeZ9wfEdwNt_WqLKE15Q0JePMxWCAO1k.png","large":"https://api-assets.clashofclans.com/badges/512/T_D6WK-jnwhaeZ9wfEdwNt_WqLKE15Q0JePMxWCAO1k.png","medium":"https://api-assets.clashofclans.com/badges/200/T_D6WK-jnwhaeZ9wfEdwNt_WqLKE15Q0JePMxWCAO1k.png"},"clanLevel":2,"clanPoints":1610,"clanBuilderBasePoints":1200,"clanCapitalPoints":28,"capitalLeague":{"id":85000000,"name":"Unranked"},"requiredTrophies":0,"warFrequency":"unknown","warWinStreak":1,"warWins":5,"warTies":1,"warLosses":2,"isWarLogPublic":true,"warLeague":{"id":48000000,"name":"Unranked"},"members":2,"memberList":[{"tag":"#GYQL8V2C","name":"Cube","role":"admin","townHallLevel":12,"expLevel":141,"league":{"id":29000000,"name":"Unranked","iconUrls":{"small":"https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png","tiny":"https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png"}},"trophies":2187,"builderBaseTrophies":2351,"clanRank":1,"previousClanRank":1,"donations":0,"donationsReceived":0,"builderBaseLeague":{"id":44000021,"name":"Brass
-        League II"}},{"tag":"#G8L0YRCJY","name":"expeehaa mini 2","role":"leader","townHallLevel":9,"expLevel":65,"league":{"id":29000005,"name":"Silver
-        League II","iconUrls":{"small":"https://api-assets.clashofclans.com/leagues/72/8OhXcwDJkenBH2kPH73eXftFOpHHRF-b32n0yrTqC44.png","tiny":"https://api-assets.clashofclans.com/leagues/36/8OhXcwDJkenBH2kPH73eXftFOpHHRF-b32n0yrTqC44.png","medium":"https://api-assets.clashofclans.com/leagues/288/8OhXcwDJkenBH2kPH73eXftFOpHHRF-b32n0yrTqC44.png"}},"trophies":1035,"builderBaseTrophies":50,"clanRank":2,"previousClanRank":2,"donations":0,"donationsReceived":0,"playerHouse":{"elements":[{"type":"ground","id":82000000},{"type":"walls","id":82000048},{"type":"roof","id":82000009},{"type":"decoration","id":82000058}]},"builderBaseLeague":{"id":44000000,"name":"Wood
+        test clan","location":{"id":32000006,"name":"International","isCountry":false},"isFamilyFriendly":false,"badgeUrls":{"small":"https://api-assets.clashofclans.com/badges/70/T_D6WK-jnwhaeZ9wfEdwNt_WqLKE15Q0JePMxWCAO1k.png","large":"https://api-assets.clashofclans.com/badges/512/T_D6WK-jnwhaeZ9wfEdwNt_WqLKE15Q0JePMxWCAO1k.png","medium":"https://api-assets.clashofclans.com/badges/200/T_D6WK-jnwhaeZ9wfEdwNt_WqLKE15Q0JePMxWCAO1k.png"},"clanLevel":2,"clanPoints":1709,"clanBuilderBasePoints":1266,"clanCapitalPoints":0,"capitalLeague":{"id":85000000,"name":"Unranked"},"requiredTrophies":0,"warFrequency":"unknown","warWinStreak":1,"warWins":5,"warTies":1,"warLosses":2,"isWarLogPublic":true,"warLeague":{"id":48000000,"name":"Unranked"},"members":2,"memberList":[{"tag":"#GYQL8V2C","name":"Cube","role":"admin","townHallLevel":12,"expLevel":146,"league":{"id":29000012,"name":"Crystal
+        League I","iconUrls":{"small":"https://api-assets.clashofclans.com/leagues/72/kSfTyNNVSvogX3dMvpFUTt72VW74w6vEsEFuuOV4osQ.png","tiny":"https://api-assets.clashofclans.com/leagues/36/kSfTyNNVSvogX3dMvpFUTt72VW74w6vEsEFuuOV4osQ.png","medium":"https://api-assets.clashofclans.com/leagues/288/kSfTyNNVSvogX3dMvpFUTt72VW74w6vEsEFuuOV4osQ.png"}},"trophies":2540,"builderBaseTrophies":2483,"clanRank":1,"previousClanRank":1,"donations":0,"donationsReceived":0,"builderBaseLeague":{"id":44000022,"name":"Brass
+        League I"}},{"tag":"#G8L0YRCJY","name":"expeehaa mini 2","role":"leader","townHallLevel":9,"expLevel":71,"league":{"id":29000004,"name":"Silver
+        League III","iconUrls":{"small":"https://api-assets.clashofclans.com/leagues/72/QcFBfoArnafaXCnB5OfI7vESpQEBuvWtzOyLq8gJzVc.png","tiny":"https://api-assets.clashofclans.com/leagues/36/QcFBfoArnafaXCnB5OfI7vESpQEBuvWtzOyLq8gJzVc.png","medium":"https://api-assets.clashofclans.com/leagues/288/QcFBfoArnafaXCnB5OfI7vESpQEBuvWtzOyLq8gJzVc.png"}},"trophies":879,"builderBaseTrophies":50,"clanRank":2,"previousClanRank":2,"donations":0,"donationsReceived":0,"playerHouse":{"elements":[{"type":"ground","id":82000000},{"type":"walls","id":82000048},{"type":"roof","id":82000009},{"type":"decoration","id":82000058}]},"builderBaseLeague":{"id":44000000,"name":"Wood
         League V"}}],"labels":[{"id":56000007,"name":"International","iconUrls":{"small":"https://api-assets.clashofclans.com/labels/64/zyaTKuJXrsPiU3DvjgdqaSA6B1qvcQ0cjD6ktRah4xs.png","medium":"https://api-assets.clashofclans.com/labels/128/zyaTKuJXrsPiU3DvjgdqaSA6B1qvcQ0cjD6ktRah4xs.png"}},{"id":56000008,"name":"Farming","iconUrls":{"small":"https://api-assets.clashofclans.com/labels/64/iLWz6AiaIHg_DqfG6s9vAxUJKb-RsPbSYl_S0ii9GAM.png","medium":"https://api-assets.clashofclans.com/labels/128/iLWz6AiaIHg_DqfG6s9vAxUJKb-RsPbSYl_S0ii9GAM.png"}},{"id":56000012,"name":"Underdog","iconUrls":{"small":"https://api-assets.clashofclans.com/labels/64/ImSgCg88EEl80mwzFZMIiJTqa33bJmJPcl4v2eT6O04.png","medium":"https://api-assets.clashofclans.com/labels/128/ImSgCg88EEl80mwzFZMIiJTqa33bJmJPcl4v2eT6O04.png"}}],"requiredBuilderBaseTrophies":0,"requiredTownhallLevel":8,"clanCapital":{"capitalHallLevel":2,"districts":[{"id":70000000,"name":"Capital
         Peak","districtHallLevel":2},{"id":70000001,"name":"Barbarian Camp","districtHallLevel":1}]},"chatLanguage":{"id":75000000,"name":"English","languageCode":"EN"}}'
-  recorded_at: Sat, 23 Dec 2023 22:07:03 GMT
+  recorded_at: Wed, 06 Mar 2024 11:12:30 GMT
 recorded_with: VCR 6.2.0

@@ -23,7 +23,7 @@ http_interactions:
       message: Bad Request
     headers:
       Date:
-      - Sat, 23 Dec 2023 22:06:52 GMT
+      - Wed, 06 Mar 2024 11:12:09 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -40,7 +40,7 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"reason":"badRequest","message":"Invalid format for parameter leagueId,
         number expected"}'
-  recorded_at: Sat, 23 Dec 2023 22:06:52 GMT
+  recorded_at: Wed, 06 Mar 2024 11:12:09 GMT
 - request:
     method: get
     uri: https://api.clashofclans.com/v1/warleagues/48000000
@@ -64,7 +64,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 23 Dec 2023 22:06:52 GMT
+      - Wed, 06 Mar 2024 11:12:10 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -80,5 +80,5 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"id":48000000,"name":"Unranked"}'
-  recorded_at: Sat, 23 Dec 2023 22:06:52 GMT
+  recorded_at: Wed, 06 Mar 2024 11:12:10 GMT
 recorded_with: VCR 6.2.0
