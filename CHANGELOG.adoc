@@ -1,6 +1,6 @@
 = Changelog
 
-== unreleased
+== 0.4.2
 
 * Add method `ClashOfClansApi::Models::ClanWarLeagueRound#prepared?` that indicates whether wars for the round have been created or not.
 
