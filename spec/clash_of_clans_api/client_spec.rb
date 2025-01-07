@@ -21,7 +21,9 @@ RSpec.describe ClashOfClansApi::Client do
 	
 	def expect_model_properties_match_object_keys(model_instance)
 		expect(model_instance                                 ).to be_a ClashOfClansApi::Models::Base
-		expect(model_instance.class.registered_properties.keys).to include(*model_instance.to_h.keys)
+		model_instance.to_h.keys.each do |key|
+			expect(model_instance.class.registered_properties.keys).to include(key)
+		end
 		
 		model_instance.class.registered_properties.each do |field_name, properties|
 			case model_instance[field_name]
