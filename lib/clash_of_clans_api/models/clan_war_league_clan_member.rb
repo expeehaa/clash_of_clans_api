@@ -5,7 +5,7 @@ module ClashOfClansApi
 		class ClanWarLeagueClanMember < Base
 			property :tag,            'tag',           required: true
 			property :name,           'name',          required: true
-			property :townhall_level, 'townhallLevel', required: true
+			property :town_hall_level, 'townHallLevel', required: true
 		end
 	end
 end
