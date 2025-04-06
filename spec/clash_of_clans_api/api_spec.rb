@@ -36,7 +36,7 @@ RSpec.describe ClashOfClansApi::Api do
 		[:player,                               ['#QG8VUCRUQ'       ], ['aninvalidvalue'                       ]             ],
 		[:capitalleagues,                       [                   ], [                                       ]             ],
 		[:leagues,                              [                   ], [                                       ]             ],
-		[:league_season,                        [29000022, '2023-08'], ['aninvalidvalue', 'anotherinvalidvalue'], {limit: 10}],
+		[:league_season,                        [29000022, '2025-03'], ['aninvalidvalue', 'anotherinvalidvalue'], {limit: 100}],
 		[:capitalleague,                        [85000022           ], ['aninvalidvalue'                       ]             ],
 		[:builderbaseleague,                    [44000041           ], ['aninvalidvalue'                       ]             ],
 		[:builderbaseleagues,                   [                   ], [                                       ]             ],

@@ -60,7 +60,7 @@ RSpec.describe ClashOfClansApi::Client do
 		[:player,          ['#QG8VUCRUQ'       ]],
 		[:capitalleagues,  [                   ]],
 		[:leagues,         [                   ]],
-		[:league_season,   [29000022, '2023-08']],
+		[:league_season,   [29000022, '2025-03']],
 		[:league,          [29000000           ]],
 	].each do |method_name, arguments|
 		describe "##{method_name}", vcr_cassette: method_name do
