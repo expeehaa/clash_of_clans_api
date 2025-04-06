@@ -23,7 +23,7 @@ RSpec.describe ClashOfClansApi::Client do
 		expect(model_instance).to be_a(ClashOfClansApi::Models::Base).or be_a(String)
 		
 		if model_instance.instance_of?(ClashOfClansApi::Models::Base)
-			model_instance.to_h.keys.each do |key|
+			model_instance.to_h.each_key do |key|
 				expect(model_instance.class.registered_properties.keys).to include(key)
 			end
 			

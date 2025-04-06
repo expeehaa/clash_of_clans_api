@@ -17,13 +17,6 @@ RSpec.describe ClashOfClansApi::Api do
 			end
 		end.new
 	end
-	let(:donkey_transformer) do
-		proc do |response|
-			expect(response.body).to eq 'flying donkeys'
-			
-			'flying cows'
-		end
-	end
 	
 	[
 		[:clan_currentwar_leaguegroup,          ['#2LLRJ29YJ'       ], ['aninvalidvalue'                       ]             ],
@@ -58,7 +51,11 @@ RSpec.describe ClashOfClansApi::Api do
 		describe "##{method_name}", vcr_cassette: method_name do
 			it 'accepts query parameters' do
 				allow(api).to receive(:perform_request        ).once.with(any_args, query: {test: 5, asdf: 'i like trains'}, headers: nil, body: nil).and_return(success_response)
-				allow(api).to receive(:default_response_parser).and_return(donkey_transformer)
+				allow(api).to receive(:default_response_parser).and_return(proc do |response|
+					expect(response.body).to eq 'flying donkeys'
+					
+					'flying cows'
+				end)
 				
 				expect(api.send(method_name, ['some_test_string'] * invalid_arguments.size, query: {test: 5, asdf: 'i like trains'})).to eq 'flying cows'
 			end
