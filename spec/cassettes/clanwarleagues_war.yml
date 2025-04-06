@@ -23,7 +23,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Sun, 06 Apr 2025 01:07:56 GMT
+      - Sun, 06 Apr 2025 14:10:57 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -39,5 +39,47 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"reason":"notFound"}'
-  recorded_at: Sun, 06 Apr 2025 01:07:56 GMT
+  recorded_at: Sun, 06 Apr 2025 14:10:57 GMT
+- request:
+    method: get
+    uri: https://api.clashofclans.com/v1/clanwarleagues/wars/%238YCQ2JGQ9
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.clashofclans.com
+      Authorization:
+      - Bearer <TOKEN>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 06 Apr 2025 14:10:57 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=43200
+      Cache-Control:
+      - max-age=600
+    body:
+      encoding: UTF-8
+      string: '{"state":"inWar","teamSize":15,"preparationStartTime":"20250404T203423.000Z","startTime":"20250405T203421.000Z","endTime":"20250406T203421.000Z","clan":{"tag":"#290J9LYR8","name":"Popigai","badgeUrls":{"small":"https://api-assets.clashofclans.com/badges/70/3mqUizT-GGSaO9mCuDvdzp1Ppr5rKun9a_aQx7nGFZs.png","large":"https://api-assets.clashofclans.com/badges/512/3mqUizT-GGSaO9mCuDvdzp1Ppr5rKun9a_aQx7nGFZs.png","medium":"https://api-assets.clashofclans.com/badges/200/3mqUizT-GGSaO9mCuDvdzp1Ppr5rKun9a_aQx7nGFZs.png"},"clanLevel":26,"attacks":8,"stars":18,"destructionPercentage":47.6,"members":[{"tag":"#20YP9RUQJ","name":"Fasthallo","townhallLevel":17,"mapPosition":2,"opponentAttacks":1,"bestOpponentAttack":{"attackerTag":"#2C008YLPP","defenderTag":"#20YP9RUQJ","stars":3,"destructionPercentage":100,"order":3,"duration":84}},{"tag":"#G0L0L0R9","name":"Obelix","townhallLevel":17,"mapPosition":7,"attacks":[{"attackerTag":"#G0L0L0R9","defenderTag":"#QVQJVG9Y","stars":3,"destructionPercentage":100,"order":4,"duration":165}],"opponentAttacks":0},{"tag":"#PLPVQU0J","name":"scapel","townhallLevel":17,"mapPosition":14,"opponentAttacks":1,"bestOpponentAttack":{"attackerTag":"#PGVPC0GR","defenderTag":"#PLPVQU0J","stars":3,"destructionPercentage":100,"order":7,"duration":141}},{"tag":"#QGPURGVP","name":"Mika","townhallLevel":17,"mapPosition":1,"attacks":[{"attackerTag":"#QGPURGVP","defenderTag":"#9RUQVLQC","stars":2,"destructionPercentage":73,"order":13,"duration":147}],"opponentAttacks":1,"bestOpponentAttack":{"attackerTag":"#PVC989LU","defenderTag":"#QGPURGVP","stars":3,"destructionPercentage":100,"order":2,"duration":88}},{"tag":"#2V20JYG0G","name":"Phönix","townhallLevel":17,"mapPosition":6,"opponentAttacks":1,"bestOpponentAttack":{"attackerTag":"#9RUQVLQC","defenderTag":"#2V20JYG0G","stars":2,"destructionPercentage":95,"order":14,"duration":180}},{"tag":"#PC08J8RC","name":"CrinsixEU","townhallLevel":17,"mapPosition":3,"opponentAttacks":1,"bestOpponentAttack":{"attackerTag":"#29YLJCUL0","defenderTag":"#PC08J8RC","stars":3,"destructionPercentage":100,"order":11,"duration":144}},{"tag":"#QRVR0R9VQ","name":"Rocco","townhallLevel":17,"mapPosition":17,"attacks":[{"attackerTag":"#QRVR0R9VQ","defenderTag":"#20VPU2R0R","stars":2,"destructionPercentage":89,"order":15,"duration":131}],"opponentAttacks":0},{"tag":"#2UCYQCVV0","name":"UlleJ","townhallLevel":17,"mapPosition":9,"attacks":[{"attackerTag":"#2UCYQCVV0","defenderTag":"#9UU280YL8","stars":2,"destructionPercentage":90,"order":12,"duration":180}],"opponentAttacks":0},{"tag":"#GCGRP29L","name":"bengaly","townhallLevel":17,"mapPosition":11,"opponentAttacks":1,"bestOpponentAttack":{"attackerTag":"#9UU280YL8","defenderTag":"#GCGRP29L","stars":3,"destructionPercentage":100,"order":5,"duration":138}},{"tag":"#28U9ULPQU","name":"vic","townhallLevel":17,"mapPosition":8,"attacks":[{"attackerTag":"#28U9ULPQU","defenderTag":"#288P2GLVU","stars":2,"destructionPercentage":92,"order":9,"duration":180}],"opponentAttacks":0},{"tag":"#2GJ0PC9P8","name":"Grantelbart","townhallLevel":17,"mapPosition":5,"opponentAttacks":1,"bestOpponentAttack":{"attackerTag":"#2Q8CU0CP8","defenderTag":"#2GJ0PC9P8","stars":3,"destructionPercentage":100,"order":1,"duration":120}},{"tag":"#PQUCCVCU8","name":"Hoba_007","townhallLevel":17,"mapPosition":12,"attacks":[{"attackerTag":"#PQUCCVCU8","defenderTag":"#29YLJCUL0","stars":2,"destructionPercentage":94,"order":16,"duration":180}],"opponentAttacks":1,"bestOpponentAttack":{"attackerTag":"#LQQ28VJ","defenderTag":"#PQUCCVCU8","stars":3,"destructionPercentage":100,"order":6,"duration":161}},{"tag":"#UJCLJVCP","name":"KK⚔LEGOLAS⚔KK","townhallLevel":17,"mapPosition":4,"attacks":[{"attackerTag":"#UJCLJVCP","defenderTag":"#2Q8CU0CP8","stars":3,"destructionPercentage":100,"order":17,"duration":170}],"opponentAttacks":1,"bestOpponentAttack":{"attackerTag":"#288P2GLVU","defenderTag":"#UJCLJVCP","stars":2,"destructionPercentage":98,"order":10,"duration":180}},{"tag":"#L0UL0QV2P","name":"civ","townhallLevel":17,"mapPosition":13,"attacks":[{"attackerTag":"#L0UL0QV2P","defenderTag":"#8Y8CVLC9","stars":2,"destructionPercentage":76,"order":8,"duration":163}],"opponentAttacks":0},{"tag":"#99008PGUV","name":"Remmihcs","townhallLevel":17,"mapPosition":10,"opponentAttacks":0}]},"opponent":{"tag":"#2LLRJ29YJ","name":"EliteTigers
+        2.0","badgeUrls":{"small":"https://api-assets.clashofclans.com/badges/70/Gc6_qP5PienrYQvOKy0h2qjgu-4MeqcD5d34xXUAOC4.png","large":"https://api-assets.clashofclans.com/badges/512/Gc6_qP5PienrYQvOKy0h2qjgu-4MeqcD5d34xXUAOC4.png","medium":"https://api-assets.clashofclans.com/badges/200/Gc6_qP5PienrYQvOKy0h2qjgu-4MeqcD5d34xXUAOC4.png"},"clanLevel":11,"attacks":9,"stars":25,"destructionPercentage":59.53333333333333,"members":[{"tag":"#PGVPC0GR","name":"Pumba®️","townhallLevel":17,"mapPosition":11,"attacks":[{"attackerTag":"#PGVPC0GR","defenderTag":"#PLPVQU0J","stars":3,"destructionPercentage":100,"order":7,"duration":141}],"opponentAttacks":0},{"tag":"#2Q8CU0CP8","name":"syst3ml0rd","townhallLevel":17,"mapPosition":4,"attacks":[{"attackerTag":"#2Q8CU0CP8","defenderTag":"#2GJ0PC9P8","stars":3,"destructionPercentage":100,"order":1,"duration":120}],"opponentAttacks":1,"bestOpponentAttack":{"attackerTag":"#UJCLJVCP","defenderTag":"#2Q8CU0CP8","stars":3,"destructionPercentage":100,"order":17,"duration":170}},{"tag":"#29YLJCUL0","name":"yeehaa","townhallLevel":17,"mapPosition":13,"attacks":[{"attackerTag":"#29YLJCUL0","defenderTag":"#PC08J8RC","stars":3,"destructionPercentage":100,"order":11,"duration":144}],"opponentAttacks":1,"bestOpponentAttack":{"attackerTag":"#PQUCCVCU8","defenderTag":"#29YLJCUL0","stars":2,"destructionPercentage":94,"order":16,"duration":180}},{"tag":"#2C008YLPP","name":"Artur","townhallLevel":17,"mapPosition":5,"attacks":[{"attackerTag":"#2C008YLPP","defenderTag":"#20YP9RUQJ","stars":3,"destructionPercentage":100,"order":3,"duration":84}],"opponentAttacks":0},{"tag":"#9RUQVLQC","name":"Superfame","townhallLevel":17,"mapPosition":12,"attacks":[{"attackerTag":"#9RUQVLQC","defenderTag":"#2V20JYG0G","stars":2,"destructionPercentage":95,"order":14,"duration":180}],"opponentAttacks":1,"bestOpponentAttack":{"attackerTag":"#QGPURGVP","defenderTag":"#9RUQVLQC","stars":2,"destructionPercentage":73,"order":13,"duration":147}},{"tag":"#LQQ28VJ","name":"pumba","townhallLevel":17,"mapPosition":15,"attacks":[{"attackerTag":"#LQQ28VJ","defenderTag":"#PQUCCVCU8","stars":3,"destructionPercentage":100,"order":6,"duration":161}],"opponentAttacks":0},{"tag":"#PVLRPLVUG","name":"gamma","townhallLevel":17,"mapPosition":7,"opponentAttacks":0},{"tag":"#2QPQV8YQR","name":"beta","townhallLevel":17,"mapPosition":8,"opponentAttacks":0},{"tag":"#20VPU2R0R","name":"Ⓜ️αηυ","townhallLevel":17,"mapPosition":14,"opponentAttacks":1,"bestOpponentAttack":{"attackerTag":"#QRVR0R9VQ","defenderTag":"#20VPU2R0R","stars":2,"destructionPercentage":89,"order":15,"duration":131}},{"tag":"#QVQJVG9Y","name":"niklas","townhallLevel":17,"mapPosition":1,"opponentAttacks":1,"bestOpponentAttack":{"attackerTag":"#G0L0L0R9","defenderTag":"#QVQJVG9Y","stars":3,"destructionPercentage":100,"order":4,"duration":165}},{"tag":"#288P2GLVU","name":"Justin
+        Z.","townhallLevel":17,"mapPosition":3,"attacks":[{"attackerTag":"#288P2GLVU","defenderTag":"#UJCLJVCP","stars":2,"destructionPercentage":98,"order":10,"duration":180}],"opponentAttacks":1,"bestOpponentAttack":{"attackerTag":"#28U9ULPQU","defenderTag":"#288P2GLVU","stars":2,"destructionPercentage":92,"order":9,"duration":180}},{"tag":"#9UU280YL8","name":"Rotsch","townhallLevel":17,"mapPosition":9,"attacks":[{"attackerTag":"#9UU280YL8","defenderTag":"#GCGRP29L","stars":3,"destructionPercentage":100,"order":5,"duration":138}],"opponentAttacks":1,"bestOpponentAttack":{"attackerTag":"#2UCYQCVV0","defenderTag":"#9UU280YL8","stars":2,"destructionPercentage":90,"order":12,"duration":180}},{"tag":"#PVC989LU","name":"Artur","townhallLevel":17,"mapPosition":6,"attacks":[{"attackerTag":"#PVC989LU","defenderTag":"#QGPURGVP","stars":3,"destructionPercentage":100,"order":2,"duration":88}],"opponentAttacks":0},{"tag":"#8Y8CVLC9","name":"alpha","townhallLevel":17,"mapPosition":2,"opponentAttacks":1,"bestOpponentAttack":{"attackerTag":"#L0UL0QV2P","defenderTag":"#8Y8CVLC9","stars":2,"destructionPercentage":76,"order":8,"duration":163}},{"tag":"#9JCG2YR28","name":"delta","townhallLevel":17,"mapPosition":10,"opponentAttacks":0}]},"warStartTime":"20250405T203421.000Z"}'
+  recorded_at: Sun, 06 Apr 2025 14:10:57 GMT
 recorded_with: VCR 6.3.1

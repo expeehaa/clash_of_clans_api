@@ -20,36 +20,39 @@ RSpec.describe ClashOfClansApi::Client do
 	end
 	
 	def expect_model_properties_match_object_keys(model_instance)
-		expect(model_instance                                 ).to be_a ClashOfClansApi::Models::Base
-		model_instance.to_h.keys.each do |key|
-			expect(model_instance.class.registered_properties.keys).to include(key)
-		end
+		expect(model_instance).to be_a(ClashOfClansApi::Models::Base).or be_a(String)
 		
-		model_instance.class.registered_properties.each do |field_name, properties|
-			case model_instance[field_name]
-				when Hash
-					expect_model_properties_match_object_keys(model_instance.send(properties[:method_name]))
-				when Array
-					model_instance.send(properties[:method_name]).each do |element|
-						expect_model_properties_match_object_keys(element)
-					end
-				else
-					if !model_instance[field_name].nil?
-						if properties[:type] == DateTime
-							expect(model_instance.send(properties[:method_name])).to eq DateTime.parse(model_instance[field_name])
-						else
-							expect(model_instance.send(properties[:method_name])).to eq model_instance[field_name]
+		if model_instance.instance_of?(ClashOfClansApi::Models::Base)
+			model_instance.to_h.keys.each do |key|
+				expect(model_instance.class.registered_properties.keys).to include(key)
+			end
+			
+			model_instance.class.registered_properties.each do |field_name, properties|
+				case model_instance[field_name]
+					when Hash
+						expect_model_properties_match_object_keys(model_instance.send(properties[:method_name]))
+					when Array
+						model_instance.send(properties[:method_name]).each do |element|
+							expect_model_properties_match_object_keys(element)
 						end
 					else
-						expect(model_instance.send(properties[:method_name])).to eq properties[:default]
-					end
+						if !model_instance[field_name].nil?
+							if properties[:type] == DateTime
+								expect(model_instance.send(properties[:method_name])).to eq DateTime.parse(model_instance[field_name])
+							else
+								expect(model_instance.send(properties[:method_name])).to eq model_instance[field_name]
+							end
+						else
+							expect(model_instance.send(properties[:method_name])).to eq properties[:default]
+						end
+				end
 			end
 		end
 	end
 	
 	[
-		# [:clan_currentwar_leaguegroup, ['#2YYQPVGQQ']], # TODO: Find a way to test this in a future-proof way.
-		# [:clanwarleagues_war,          [''          ]], # TODO: Find a way to test this in a future-proof way.
+		[:clan_currentwar_leaguegroup, ['#2LLRJ29YJ']], # TODO: Find a way to test this in a future-proof way.
+		[:clanwarleagues_war,          ['#8YCQ2JGQ9']], # TODO: Find a way to test this in a future-proof way.
 		[:clan_warlog,     ['#2YYQPVGQQ'       ]],
 		[:clan_currentwar, ['#2YYQPVGQQ'       ]],
 		[:clan,            ['#2YYQPVGQQ'       ]],
@@ -59,12 +62,10 @@ RSpec.describe ClashOfClansApi::Client do
 		[:leagues,         [                   ]],
 		[:league_season,   [29000022, '2023-08']],
 		[:league,          [29000000           ]],
-	].each do |method_name, arguments, pend|
+	].each do |method_name, arguments|
 		describe "##{method_name}", vcr_cassette: method_name do
 			it 'returns a model instance that implements all properties' do
 				model_instance = client.send(method_name, *arguments)
-				
-				pending if pend
 				
 				expect_model_properties_match_object_keys(model_instance)
 			end

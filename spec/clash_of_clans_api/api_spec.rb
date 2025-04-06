@@ -26,8 +26,8 @@ RSpec.describe ClashOfClansApi::Api do
 	end
 	
 	[
-		[:clan_currentwar_leaguegroup,          nil,                   ['aninvalidvalue'                       ]             ],
-		[:clanwarleagues_war,                   nil,                   ['aninvalidvalue'                       ]             ],
+		[:clan_currentwar_leaguegroup,          ['#2LLRJ29YJ'       ], ['aninvalidvalue'                       ]             ],
+		[:clanwarleagues_war,                   ['#8YCQ2JGQ9'       ], ['aninvalidvalue'                       ]             ],
 		[:clan_warlog,                          ['#2YYQPVGQQ'       ], ['aninvalidvalue'                       ]             ],
 		[:clan_currentwar,                      ['#2YYQPVGQQ'       ], ['aninvalidvalue'                       ]             ],
 		[:clan,                                 ['#2YYQPVGQQ'       ], ['aninvalidvalue'                       ]             ],
@@ -73,8 +73,6 @@ RSpec.describe ClashOfClansApi::Api do
 			end
 			
 			it 'returns a Hash with a valid argument' do
-				pending "Replace nil with an array of valid arguments for method #{method_name}!" if valid_arguments.nil?
-				
 				response = api.send(method_name, *valid_arguments, query: query)
 				
 				expect(response     ).    to be_a Hash
