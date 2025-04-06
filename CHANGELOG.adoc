@@ -1,5 +1,9 @@
 = Changelog
 
+== 0.5.0 (unreleased)
+
+* Rename `ClashOfClansApi::Models::ClanWarLeagueClanMember#townhall_level` to `town_hall_level`.
+
 == 0.4.2
 
 * Add method `ClashOfClansApi::Models::ClanWarLeagueRound#prepared?` that indicates whether wars for the round have been created or not.
