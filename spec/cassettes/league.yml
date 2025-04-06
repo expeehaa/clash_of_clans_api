@@ -23,7 +23,7 @@ http_interactions:
       message: Bad Request
     headers:
       Date:
-      - Wed, 06 Mar 2024 11:12:06 GMT
+      - Sun, 06 Apr 2025 01:08:06 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,10 +37,10 @@ http_interactions:
       Cache-Control:
       - public max-age=600
     body:
-      encoding: ASCII-8BIT
+      encoding: UTF-8
       string: '{"reason":"badRequest","message":"Invalid format for parameter leagueId,
         number expected"}'
-  recorded_at: Wed, 06 Mar 2024 11:12:06 GMT
+  recorded_at: Sun, 06 Apr 2025 01:08:06 GMT
 - request:
     method: get
     uri: https://api.clashofclans.com/v1/leagues/29000000
@@ -64,7 +64,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 06 Mar 2024 11:12:43 GMT
+      - Sun, 06 Apr 2025 01:08:21 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -76,9 +76,9 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=43200
       Cache-Control:
-      - max-age=564
+      - max-age=586
     body:
-      encoding: ASCII-8BIT
+      encoding: UTF-8
       string: '{"id":29000000,"name":"Unranked","iconUrls":{"small":"https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png","tiny":"https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png"}}'
-  recorded_at: Wed, 06 Mar 2024 11:12:43 GMT
-recorded_with: VCR 6.2.0
+  recorded_at: Sun, 06 Apr 2025 01:08:21 GMT
+recorded_with: VCR 6.3.1

@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 06 Mar 2024 11:12:33 GMT
+      - Sun, 06 Apr 2025 01:08:20 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -35,9 +35,9 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=43200
       Cache-Control:
-      - max-age=545
+      - public max-age=600
     body:
-      encoding: ASCII-8BIT
+      encoding: UTF-8
       string: '{"items":[{"id":29000000,"name":"Unranked","iconUrls":{"small":"https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png","tiny":"https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png"}},{"id":29000001,"name":"Bronze
         League III","iconUrls":{"small":"https://api-assets.clashofclans.com/leagues/72/uUJDLEdAh7Lwf6YOHmXfNM586ZlEvMju54bTlt2u6EE.png","tiny":"https://api-assets.clashofclans.com/leagues/36/uUJDLEdAh7Lwf6YOHmXfNM586ZlEvMju54bTlt2u6EE.png","medium":"https://api-assets.clashofclans.com/leagues/288/uUJDLEdAh7Lwf6YOHmXfNM586ZlEvMju54bTlt2u6EE.png"}},{"id":29000002,"name":"Bronze
         League II","iconUrls":{"small":"https://api-assets.clashofclans.com/leagues/72/U2acNDRaR5rQDu4Z6pQKaGcjWm9dkSnHMAPZCXrHPB4.png","tiny":"https://api-assets.clashofclans.com/leagues/36/U2acNDRaR5rQDu4Z6pQKaGcjWm9dkSnHMAPZCXrHPB4.png","medium":"https://api-assets.clashofclans.com/leagues/288/U2acNDRaR5rQDu4Z6pQKaGcjWm9dkSnHMAPZCXrHPB4.png"}},{"id":29000003,"name":"Bronze
@@ -61,5 +61,5 @@ http_interactions:
         League II","iconUrls":{"small":"https://api-assets.clashofclans.com/leagues/72/llpWocHlOoFliwyaEx5Z6dmoZG4u4NmxwpF-Jg7su7Q.png","tiny":"https://api-assets.clashofclans.com/leagues/36/llpWocHlOoFliwyaEx5Z6dmoZG4u4NmxwpF-Jg7su7Q.png","medium":"https://api-assets.clashofclans.com/leagues/288/llpWocHlOoFliwyaEx5Z6dmoZG4u4NmxwpF-Jg7su7Q.png"}},{"id":29000021,"name":"Titan
         League I","iconUrls":{"small":"https://api-assets.clashofclans.com/leagues/72/qVCZmeYH0lS7Gaa6YoB7LrNly7bfw7fV_d4Vp2CU-gk.png","tiny":"https://api-assets.clashofclans.com/leagues/36/qVCZmeYH0lS7Gaa6YoB7LrNly7bfw7fV_d4Vp2CU-gk.png","medium":"https://api-assets.clashofclans.com/leagues/288/qVCZmeYH0lS7Gaa6YoB7LrNly7bfw7fV_d4Vp2CU-gk.png"}},{"id":29000022,"name":"Legend
         League","iconUrls":{"small":"https://api-assets.clashofclans.com/leagues/72/R2zmhyqQ0_lKcDR5EyghXCxgyC9mm_mVMIjAbmGoZtw.png","tiny":"https://api-assets.clashofclans.com/leagues/36/R2zmhyqQ0_lKcDR5EyghXCxgyC9mm_mVMIjAbmGoZtw.png","medium":"https://api-assets.clashofclans.com/leagues/288/R2zmhyqQ0_lKcDR5EyghXCxgyC9mm_mVMIjAbmGoZtw.png"}}],"paging":{"cursors":{}}}'
-  recorded_at: Wed, 06 Mar 2024 11:12:33 GMT
-recorded_with: VCR 6.2.0
+  recorded_at: Sun, 06 Apr 2025 01:08:20 GMT
+recorded_with: VCR 6.3.1

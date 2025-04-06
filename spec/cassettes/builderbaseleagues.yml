@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 06 Mar 2024 11:12:05 GMT
+      - Sun, 06 Apr 2025 01:08:06 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -35,9 +35,9 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=43200
       Cache-Control:
-      - max-age=533
+      - max-age=577
     body:
-      encoding: ASCII-8BIT
+      encoding: UTF-8
       string: '{"items":[{"id":44000000,"name":"Wood League V"},{"id":44000001,"name":"Wood
         League IV"},{"id":44000002,"name":"Wood League III"},{"id":44000003,"name":"Wood
         League II"},{"id":44000004,"name":"Wood League I"},{"id":44000005,"name":"Clay
@@ -60,5 +60,5 @@ http_interactions:
         League I"},{"id":44000038,"name":"Ruby League III"},{"id":44000039,"name":"Ruby
         League II"},{"id":44000040,"name":"Ruby League I"},{"id":44000041,"name":"Diamond
         League"}],"paging":{"cursors":{}}}'
-  recorded_at: Wed, 06 Mar 2024 11:12:05 GMT
-recorded_with: VCR 6.2.0
+  recorded_at: Sun, 06 Apr 2025 01:08:06 GMT
+recorded_with: VCR 6.3.1

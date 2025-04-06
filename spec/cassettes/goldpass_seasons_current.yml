@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 06 Mar 2024 11:12:24 GMT
+      - Sun, 06 Apr 2025 01:08:15 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -35,9 +35,9 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=43200
       Cache-Control:
-      - max-age=60
+      - max-age=35
     body:
-      encoding: ASCII-8BIT
-      string: '{"startTime":"20240301T080100.000Z","endTime":"20240401T080000.000Z"}'
-  recorded_at: Wed, 06 Mar 2024 11:12:24 GMT
-recorded_with: VCR 6.2.0
+      encoding: UTF-8
+      string: '{"startTime":"20250401T080100.000Z","endTime":"20250501T080000.000Z"}'
+  recorded_at: Sun, 06 Apr 2025 01:08:15 GMT
+recorded_with: VCR 6.3.1

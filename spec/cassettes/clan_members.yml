@@ -23,7 +23,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Wed, 06 Mar 2024 11:11:31 GMT
+      - Sun, 06 Apr 2025 01:07:59 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,9 +37,9 @@ http_interactions:
       Cache-Control:
       - public max-age=600
     body:
-      encoding: ASCII-8BIT
+      encoding: UTF-8
       string: '{"reason":"notFound","message":"Not found with tag aninvalidvalue"}'
-  recorded_at: Wed, 06 Mar 2024 11:11:31 GMT
+  recorded_at: Sun, 06 Apr 2025 01:07:59 GMT
 - request:
     method: get
     uri: https://api.clashofclans.com/v1/clans/%232YYQPVGQQ/members
@@ -63,7 +63,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 06 Mar 2024 11:12:31 GMT
+      - Sun, 06 Apr 2025 01:08:19 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -75,13 +75,10 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=43200
       Cache-Control:
-      - max-age=120
+      - max-age=81
     body:
-      encoding: ASCII-8BIT
-      string: '{"items":[{"tag":"#GYQL8V2C","name":"Cube","role":"admin","townHallLevel":12,"expLevel":146,"league":{"id":29000012,"name":"Crystal
-        League I","iconUrls":{"small":"https://api-assets.clashofclans.com/leagues/72/kSfTyNNVSvogX3dMvpFUTt72VW74w6vEsEFuuOV4osQ.png","tiny":"https://api-assets.clashofclans.com/leagues/36/kSfTyNNVSvogX3dMvpFUTt72VW74w6vEsEFuuOV4osQ.png","medium":"https://api-assets.clashofclans.com/leagues/288/kSfTyNNVSvogX3dMvpFUTt72VW74w6vEsEFuuOV4osQ.png"}},"trophies":2540,"builderBaseTrophies":2483,"clanRank":1,"previousClanRank":1,"donations":0,"donationsReceived":0,"builderBaseLeague":{"id":44000022,"name":"Brass
-        League I"}},{"tag":"#G8L0YRCJY","name":"expeehaa mini 2","role":"leader","townHallLevel":9,"expLevel":71,"league":{"id":29000004,"name":"Silver
-        League III","iconUrls":{"small":"https://api-assets.clashofclans.com/leagues/72/QcFBfoArnafaXCnB5OfI7vESpQEBuvWtzOyLq8gJzVc.png","tiny":"https://api-assets.clashofclans.com/leagues/36/QcFBfoArnafaXCnB5OfI7vESpQEBuvWtzOyLq8gJzVc.png","medium":"https://api-assets.clashofclans.com/leagues/288/QcFBfoArnafaXCnB5OfI7vESpQEBuvWtzOyLq8gJzVc.png"}},"trophies":879,"builderBaseTrophies":50,"clanRank":2,"previousClanRank":2,"donations":0,"donationsReceived":0,"playerHouse":{"elements":[{"type":"ground","id":82000000},{"type":"walls","id":82000048},{"type":"roof","id":82000009},{"type":"decoration","id":82000058}]},"builderBaseLeague":{"id":44000000,"name":"Wood
+      encoding: UTF-8
+      string: '{"items":[{"tag":"#G8L0YRCJY","name":"expeehaa mini 2","role":"leader","townHallLevel":10,"expLevel":84,"league":{"id":29000000,"name":"Unranked","iconUrls":{"small":"https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png","tiny":"https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png"}},"trophies":1052,"builderBaseTrophies":50,"clanRank":1,"previousClanRank":0,"donations":0,"donationsReceived":0,"playerHouse":{"elements":[{"type":"ground","id":82000000},{"type":"walls","id":82000048},{"type":"roof","id":82000009},{"type":"decoration","id":82000058}]},"builderBaseLeague":{"id":44000000,"name":"Wood
         League V"}}],"paging":{"cursors":{}}}'
-  recorded_at: Wed, 06 Mar 2024 11:12:31 GMT
-recorded_with: VCR 6.2.0
+  recorded_at: Sun, 06 Apr 2025 01:08:19 GMT
+recorded_with: VCR 6.3.1
