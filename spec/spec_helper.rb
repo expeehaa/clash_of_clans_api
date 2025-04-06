@@ -13,6 +13,11 @@ VCR.configure do |config|
 		record: ENV.fetch('VCR_RECORD', 'false') == 'true' ? :all : :none,
 	}
 	config.filter_sensitive_data('<TOKEN>') { ENV.fetch('CLASH_OF_CLANS_API_TOKEN', nil) }
+	config.before_record do |interaction|
+		# This assumes that responses are actually always encoded as UTF-8, although Ruby seems to think otherwise sometimes.
+		# Without this, serialization of cassettes may have responses as base64-encoded strings (if e.g. a player name includes non-ASCII characters), which makes the cassette diff quite hard to read.
+		interaction.response.body.force_encoding(Encoding::UTF_8)
+	end
 end
 
 RSpec.configure do |config|
