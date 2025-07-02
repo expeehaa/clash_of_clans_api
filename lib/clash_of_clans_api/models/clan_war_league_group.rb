@@ -6,9 +6,9 @@ module ClashOfClansApi
 	module Models
 		class ClanWarLeagueGroup < Base
 			property :state,  'state',  required: true
-			property :season, 'season', required: true
-			property :clans,  'clans',  required: true, type: ClanWarLeagueClan
-			property :rounds, 'rounds', required: true, type: ClanWarLeagueRound
+			property :season, 'season'
+			property :clans,  'clans', type: ClanWarLeagueClan
+			property :rounds, 'rounds', type: ClanWarLeagueRound
 		end
 	end
 end
