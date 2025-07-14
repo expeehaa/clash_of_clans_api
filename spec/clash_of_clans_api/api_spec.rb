@@ -89,7 +89,7 @@ RSpec.describe ClashOfClansApi::Api do
 	describe '#player_verifytoken', vcr_cassette: :player_verifytoken do
 		it 'requires two arguments' do
 			expect{api.player_verifytoken           }.to raise_error TypeError,     'cannot escape nil'
-			expect{api.player_verifytoken('faketag')}.to raise_error ArgumentError, 'missing keyword: :token'
+			expect{api.player_verifytoken('faketag')}.to raise_error ArgumentError, (RUBY_ENGINE == 'jruby' ? 'missing keyword: token' : 'missing keyword: :token')
 		end
 		
 		it 'raises an error with an invalid argument' do
