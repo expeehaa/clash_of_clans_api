@@ -5,11 +5,11 @@ require_relative 'icon_set'
 module ClashOfClansApi
 	module Models
 		class ClanWarLeagueClan < Base
-			property :tag,        'tag',       required: true
-			property :name,       'name',      required: true
-			property :clan_level, 'clanLevel', required: true
-			property :badge_urls, 'badgeUrls', required: true, type: IconSet
-			property :members,    'members',   required: true, type: ClanWarLeagueClanMember
+			property :tag,        'tag',       expected: true
+			property :name,       'name',      expected: true
+			property :clan_level, 'clanLevel', expected: true
+			property :badge_urls, 'badgeUrls', expected: true, type: IconSet
+			property :members,    'members',   expected: true, type: ClanWarLeagueClanMember
 		end
 	end
 end

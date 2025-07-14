@@ -10,8 +10,8 @@ require_relative 'war_league'
 module ClashOfClansApi
 	module Models
 		class Clan < Base
-			property :tag,                            'tag',  required: true
-			property :name,                           'name', required: true
+			property :tag,                            'tag',  expected: true
+			property :name,                           'name', expected: true
 			property :type,                           'type'
 			property :description,                    'description'
 			property :location,                       'location',                    type: ClanLocation

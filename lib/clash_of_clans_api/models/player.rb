@@ -13,8 +13,8 @@ require_relative 'troop'
 module ClashOfClansApi
 	module Models
 		class Player < Base
-			property :tag,                        'tag',  required: true
-			property :name,                       'name', required: true
+			property :tag,                        'tag',  expected: true
+			property :name,                       'name', expected: true
 			property :town_hall_level,            'townHallLevel'
 			property :town_hall_weapon_level,     'townHallWeaponLevel'
 			property :exp_level,                  'expLevel'

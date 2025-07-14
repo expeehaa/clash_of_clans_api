@@ -6,8 +6,8 @@ module ClashOfClansApi
 		class PaginatedResponse < Base
 			attr_accessor :item_type
 			
-			property :items,  'items',  required: true, type: :item_type
-			property :paging, 'paging', required: true, type: PaginationPaging
+			property :items,  'items',  expected: true, type: :item_type
+			property :paging, 'paging', expected: true, type: PaginationPaging
 			
 			def initialize(item_type, hash, client)
 				self.item_type = item_type

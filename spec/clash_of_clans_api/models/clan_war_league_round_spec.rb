@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 RSpec.describe ClashOfClansApi::Models::ClanWarLeagueRound do
+	let(:minimal_data) do
+		{
+			'warTags' => [],
+		}
+	end
 	let(:prepared_round) do
 		ClashOfClansApi::Models::ClanWarLeagueRound.new({
 			'warTags' => %w[
@@ -37,4 +42,6 @@ RSpec.describe ClashOfClansApi::Models::ClanWarLeagueRound do
 			expect(prepared_round.prepared?).to be true
 		end
 	end
+	
+	include_examples 'model has expected', ClashOfClansApi::Models::ClanWarLeagueRound
 end

@@ -5,7 +5,7 @@ require_relative 'clan_war_league_round'
 module ClashOfClansApi
 	module Models
 		class ClanWarLeagueGroup < Base
-			property :state,  'state',  required: true
+			property :state,  'state',  expected: true
 			property :season, 'season'
 			property :clans,  'clans', type: ClanWarLeagueClan
 			property :rounds, 'rounds', type: ClanWarLeagueRound

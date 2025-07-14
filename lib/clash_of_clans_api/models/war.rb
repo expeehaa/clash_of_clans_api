@@ -11,8 +11,8 @@ module ClashOfClansApi
 			property :preparation_start_time, 'preparationStartTime',             type: DateTime
 			property :team_size,              'teamSize'
 			property :attacks_per_member,     'attacksPerMember'
-			property :clan,                   'clan',             required: true, type: WarClan
-			property :opponent,               'opponent',         required: true, type: WarClan
+			property :clan,                   'clan',             expected: true, type: WarClan
+			property :opponent,               'opponent',         expected: true, type: WarClan
 		end
 	end
 end

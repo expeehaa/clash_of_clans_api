@@ -3,7 +3,7 @@ require_relative 'base'
 module ClashOfClansApi
 	module Models
 		class ClanWarLeagueRound < Base
-			property :war_tags, 'warTags', required: true
+			property :war_tags, 'warTags', expected: true
 
 			def prepared?
 				war_tags.all? do |war_tag|

@@ -9,8 +9,6 @@ module ClashOfClansApi
 			def initialize(hash, client)
 				@hash   = hash
 				@client = client
-				
-				validate!
 			end
 			
 			def to_h
@@ -26,7 +24,7 @@ module ClashOfClansApi
 					@registered_properties ||= {}
 				end
 				
-				def property(method_name, key, type: nil, required: false, default: nil)
+				def property(method_name, key, type: nil, expected: false, default: nil)
 					define_method(method_name) do
 						deduced_type =
 							case type
@@ -63,7 +61,7 @@ module ClashOfClansApi
 					
 					registered_properties[key] = {
 						method_name: method_name,
-						required:    required,
+						expected:    expected,
 						default:     default,
 						type:        type,
 					}
@@ -84,14 +82,12 @@ module ClashOfClansApi
 				@property_cache[method_name]
 			end
 			
-			def validate!
+			def expected_properties?
 				missing = self.class.registered_properties.reject do |field_name, properties|
-					!properties[:required] || @hash.key?(field_name)
+					!properties[:expected] || @hash.key?(field_name)
 				end
 				
-				if missing.any?
-					raise InvalidDataError, "The following keys are required, but missing from the model data: #{missing.keys.map(&:inspect).join(', ')}"
-				end
+				missing.empty?
 			end
 		end
 	end

@@ -3,9 +3,9 @@ require_relative 'base'
 module ClashOfClansApi
 	module Models
 		class ChatLanguage < Base
-			property :id,            'id',           required: true
-			property :name,          'name',         required: true
-			property :language_code, 'languageCode', required: true
+			property :id,            'id',           expected: true
+			property :name,          'name',         expected: true
+			property :language_code, 'languageCode', expected: true
 		end
 	end
 end

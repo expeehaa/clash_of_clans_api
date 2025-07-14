@@ -133,6 +133,9 @@ Naming/VariableNumber:
 RSpec/ExampleLength:
   Enabled: false
 
+RSpec/IncludeExamples:
+  Enabled: false
+
 RSpec/MessageSpies:
   Enabled: true
   EnforcedStyle: receive

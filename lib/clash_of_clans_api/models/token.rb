@@ -3,16 +3,16 @@ require_relative 'base'
 module ClashOfClansApi
 	module Models
 		class Token < Base
-			property :id,           'id',          required: true
+			property :id,           'id',          expected: true
 			property :developer_id, 'developerId'
 			property :tier,         'tier'
-			property :name,         'name',        required: true
-			property :description,  'description', required: true
+			property :name,         'name',        expected: true
+			property :description,  'description', expected: true
 			property :origins,      'origins'
 			property :scopes,       'scopes'
-			property :cidr_ranges,  'cidrRanges',  required: true
+			property :cidr_ranges,  'cidrRanges',  expected: true
 			property :valid_until,  'validUntil'
-			property :key,          'key',         required: true
+			property :key,          'key',         expected: true
 			
 			def revoke
 				self.client.revoke_api_key(self.id)

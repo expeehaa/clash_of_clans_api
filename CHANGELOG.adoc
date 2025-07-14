@@ -1,5 +1,9 @@
 = Changelog
 
+== unreleased
+
+* Replace the strict presence requirements of some keys in models with a less aggressive method `#expected_properties?`, which allows a developer to check the presence themselves.
+
 == 0.5.0
 
 * Rename `ClashOfClansApi::Models::ClanWarLeagueClanMember#townhall_level` to `town_hall_level`.

@@ -4,10 +4,10 @@ require_relative 'hero_equipment'
 module ClashOfClansApi
 	module Models
 		class Hero < Base
-			property :name,      'name',     required: true
-			property :level,     'level',    required: true
-			property :max_level, 'maxLevel', required: true
-			property :village,   'village',  required: true
+			property :name,      'name',     expected: true
+			property :level,     'level',    expected: true
+			property :max_level, 'maxLevel', expected: true
+			property :village,   'village',  expected: true
 			property :equipment, 'equipment', type: HeroEquipment
 		end
 	end

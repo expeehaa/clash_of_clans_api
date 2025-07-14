@@ -15,10 +15,7 @@ RSpec.describe ClashOfClansApi::Models::Spell do
 			expect{ClashOfClansApi::Models::Spell.new    }.to raise_error ArgumentError, 'wrong number of arguments (given 0, expected 2)'
 			expect{ClashOfClansApi::Models::Spell.new({})}.to raise_error ArgumentError, 'wrong number of arguments (given 1, expected 2)'
 		end
-		
-		it 'validates the argument key requirements' do
-			expect{ClashOfClansApi::Models::Spell.new({},           4)}.    to raise_error ClashOfClansApi::Models::InvalidDataError, 'The following keys are required, but missing from the model data: "name", "level", "maxLevel", "village"'
-			expect{ClashOfClansApi::Models::Spell.new(minimal_data, 4)}.not_to raise_error
-		end
 	end
+	
+	include_examples 'model has expected', ClashOfClansApi::Models::Spell
 end

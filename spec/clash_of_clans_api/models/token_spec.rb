@@ -1,6 +1,15 @@
 require 'spec_helper'
 
 RSpec.describe ClashOfClansApi::Models::Token do
+	let(:minimal_data) do
+		{
+			'id'          => 'abcdefg',
+			'name'        => 'testname',
+			'description' => 'test description',
+			'cidrRanges'  => ['1.1.1.1', '5.5.5.5'],
+			'key'         => 'mysupercoolkey',
+		}
+	end
 	let(:token_client) { double }
 	let(:instance    ) do
 		ClashOfClansApi::Models::Token.new({
@@ -22,12 +31,9 @@ RSpec.describe ClashOfClansApi::Models::Token do
 			expect{ClashOfClansApi::Models::Token.new    }.    to raise_error ArgumentError, 'wrong number of arguments (given 0, expected 2)'
 			expect{ClashOfClansApi::Models::Token.new({})}.    to raise_error ArgumentError, 'wrong number of arguments (given 1, expected 2)'
 		end
-		
-		it 'validates the argument key requirements' do
-			expect{ClashOfClansApi::Models::Token.new({}, nil)}.    to raise_error ClashOfClansApi::Models::InvalidDataError, 'The following keys are required, but missing from the model data: "id", "name", "description", "cidrRanges", "key"'
-			expect{instance                                   }.not_to raise_error
-		end
 	end
+	
+	include_examples 'model has expected', ClashOfClansApi::Models::Token
 	
 	describe '#id' do
 		it 'returns the value of key "id"' do

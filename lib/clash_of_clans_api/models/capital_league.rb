@@ -3,8 +3,8 @@ require_relative 'base'
 module ClashOfClansApi
 	module Models
 		class CapitalLeague < Base
-			property :id,   'id',   required: true
-			property :name, 'name', required: true
+			property :id,   'id',   expected: true
+			property :name, 'name', expected: true
 		end
 	end
 end
