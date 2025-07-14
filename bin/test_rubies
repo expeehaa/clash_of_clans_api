@@ -1,0 +1,71 @@
+#!/bin/bash
+
+set -euo pipefail
+
+base_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)/.."
+containerfiles_dir="${base_dir}/containerfiles"
+library_dir="/library"
+
+
+function image_name() {
+	containerfile="$1"
+	echo "clash_of_clans_api__test_$(basename "${containerfile%.containerfile}")"
+}
+
+function build_and_run() {
+	containerfile="$1"
+	image="$(image_name "$containerfile")"
+	
+	podman image exists "$image" || podman build -f "$containerfile" -t "$image"
+	
+	gem_home="${containerfiles_dir}/gem_home_$(basename "${containerfile%.containerfile}")"
+	mkdir -p "$gem_home"
+	podman run --rm -t --volume "${gem_home}:/gem_home:rw" --volume "${base_dir}:${library_dir}:O" --workdir "$library_dir" --name "$image" "$image" /bin/sh -c 'rm Gemfile.lock && bundle install && rspec'
+}
+
+function delete_and_build() {
+	containerfile="$1"
+	remove_image "$containerfile"
+	podman build -f "$containerfile" -t "$(image_name "$containerfile")"
+}
+
+function remove_image() {
+	containerfile="$1"
+	if podman image exists "$(image_name "$containerfile")"; then
+		podman image rm "$(image_name "$containerfile")"
+	fi
+}
+
+function iterate_containerfiles() {
+	command="$1"
+	for containerfile in $containerfiles_dir/*.containerfile; do
+		eval "$command $containerfile"
+	done
+}
+
+case "${1:-}" in
+	build)
+		if [[ "${2:-}" = "" ]]; then
+			iterate_containerfiles delete_and_build
+		else
+			delete_and_build "$2"
+		fi
+		;;
+	rm)
+		if [[ "${2:-}" = "" ]]; then
+			iterate_containerfiles remove_image
+		else
+			remove_image "$2"
+		fi
+		;;
+	run)
+		shift
+		;&
+	*)
+		if [[ "${1:-}" = "" ]]; then
+			iterate_containerfiles build_and_run
+		else
+			build_and_run "$1"
+		fi
+		;;
+esac

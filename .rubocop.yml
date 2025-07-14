@@ -6,6 +6,8 @@ require:
 AllCops:
   NewCops: enable
   SuggestExtensions: false
+  Exclude:
+    - 'containerfiles/gem_home_*/**/*'
 
 
 # Bundler
