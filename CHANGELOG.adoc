@@ -1,6 +1,6 @@
 = Changelog
 
-== unreleased
+== 0.6.0
 
 * Replace the strict presence requirements of some keys in models with a less aggressive method `#expected_properties?`, which allows a developer to check the presence themselves.
 * Stop `ClashOfClansApi::TokenClient#revoke_api_key` from always returning true.
