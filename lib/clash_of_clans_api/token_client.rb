@@ -48,8 +48,6 @@ module ClashOfClansApi
 		
 		def revoke_api_key(id)
 			TokenApi.apikey_revoke(id: id, headers: @session_headers)
-			
-			true
 		end
 		
 		def create_or_get_api_key_for_current_ipv4_address(name, description=name, overwrite: false)
