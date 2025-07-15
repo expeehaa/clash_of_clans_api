@@ -97,3 +97,6 @@ While this isn’t a problem anymore in this specific use case, it might come in
 After checking out the repo, run `bin/setup` to install dependencies.
 Then, run `rake spec` to run the tests.
 You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+
+Tests can be run on a number of supported Rubies (see `containerfiles/*.containerfile`) by running `bin/test_rubies`.
+In general, only the latest patch version of a minor version release will be tested, but bug fixes for other (supported) versions are still welcome.
